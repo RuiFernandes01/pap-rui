@@ -1,0 +1,25 @@
+﻿<div class="navbar">
+    <div class="container d-flex">
+        <a href="/" title="HomePage" class="logo-img">
+            <img src="~/images/png/logo.png" alt="Logo"/>
+        </a>
+
+        <div class="">
+            @if (Session["login"] == null)
+            {
+                <a class="login-btn" href="/login" title="Login">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span>Login</span>
+                </a>
+
+            }
+            else
+            {
+                <a class="logout-btn" href="/logout" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿body{min-height:80vh;}
+
+/*#region Navbar*/
+.navbar{width:100%;border-bottom:1px solid #CCC;}
+.navbar .login-btn{color:#f90035;text-transform:uppercase;}
+.navbar .logo-img{}
+.navbar .logo-img img{height:80px;}
+
+/*#endregion*/
+
+
+/*#region SlideShow*/
+.slide{background-image: url(/images/jpg/slide1.jpg);background-size:cover;height:100vh;background-repeat:no-repeat;}
+
+
+/*#endregion*/
+
+.coluna-evento {
+    color: blue;
+}
+
+.footer {
+    display:none;
+    width: 100%;
+    background-color: gray;
+    text-align: center;
+}
+
+/*#region Dashboard*/
+#dashboard{padding-top:50px;}
+#dashboard .title{font-size:23px;line-height:25px;font-family:'Roboto';color:#f90035;}
+#dashboard .list-section{padding-left:0;margin-top:25px;border: 1px solid black;border-collapse: collapse;height: 50px;padding: 15px;text-align: left;}
+#dashboard .add-events-btn{background:#f90035;display:flex;align-items:center;justify-content:center;border-radius:10px;color:#FFF;height:50px;padding:0 25px;width:250px;transition:opacity 0.3s ease, transform 0.3s ease;text-decoration:none !important;}
+#dashboard .add-events-btn i{color:#FFF;padding-right:10px;}
+#dashboard .add-events-btn span{color:#FFF;font-size:20px;line-height:22px;font-family:'Roboto';}
+#dashboard .add-events-btn:hover{opacity:0.8;transform:scale(1.05);}
+
+/*#endregion*/

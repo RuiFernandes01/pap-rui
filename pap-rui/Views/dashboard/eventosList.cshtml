@@ -1,0 +1,11 @@
+﻿@model List<eventos>
+
+@foreach (eventos item in Model)
+{
+    <li class="d-flex">
+        <div>@item.titulo</div>
+        <div>@item.subtitulo</div>
+        <div>@item.descricao</div>
+        <a title="Apagar" class="delete-btn" data-id="@item.id"><i class="fas fa-trash-alt"></i></a>
+    </li>
+}
