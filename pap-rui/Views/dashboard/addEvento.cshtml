@@ -1,40 +1,45 @@
-﻿<div class="container">
-    <div class="form-group">
+﻿@model eventos
 
-        <span>Titulo:</span>
-        <input type="text" class="form-control" id="titulo-input" name="emailValue" title="" placeholder="Insira o titulo do evento">
+<div class="container">
+    @using (Html.BeginForm("adicionarEventos", "AddEventos", FormMethod.Post))
+    {
+        <div class="form-group">
 
-    </div>
+            <span>Titulo:</span>
+            <input type="text" class="form-control" id="titulo-input" name="titulo" title="" placeholder="Insira o titulo do evento">
 
-    <div class="form-group">
-        <span>Subtitulo:</span>
-        <input type="text" class="form-control" id="subtitulo-input" name="emailValue" title="" placeholder="Adicione um subtitulo">
-    </div>
+        </div>
 
-    <div class="form-group">
-        <span>imagem:</span>
-        <input type="text" class="form-control" id="imagem-input" name="emailValue" title="" placeholder="Adicione uma imagem">
-    </div>
+        <div class="form-group">
+            <span>Subtitulo:</span>
+            <input type="text" class="form-control" id="subtitulo-input" name="subtitulo" title="" placeholder="Adicione um subtitulo">
+        </div>
 
-    <div class="form-group">
-        <span>Data de Inicio:</span>
-        <input type="text" class="form-control" id="datai-input" name="emailValue" title="" placeholder="Insira a data de inicio">
-    </div>
+        <div class="form-group">
+            <span>imagem:</span>
+            <input type="file" class="form-control" id="imagem-input" name="imagem" title="" placeholder="Adicione uma imagem">
+        </div>
 
-    <div class="form-group">
-        <span>Data de Fim:</span>
-        <input type="text" class="form-control" id="dataf-input" name="emailValue" title="" placeholder="Inisira a data de fim">
-    </div>
+        <div class="form-group">
+            <span>Data de Inicio:</span>
+            <input type="date" class="form-control" id="datai-input" name="datainicio" title="" placeholder="Insira a data de inicio">
+        </div>
 
-    <div class="form-group">
-        <span>Descrição:</span>
-        <input type="text" class="form-control" id="descricao-input" name="emailValue" title="" placeholder="Insira a descrição do evento">
-    </div>
+        <div class="form-group">
+            <span>Data de Fim:</span>
+            <input type="date" class="form-control" id="dataf-input" name="datafim" title="" placeholder="Inisira a data de fim">
+        </div>
 
-    <div class="form-group">
-        <span>Localização:</span>
-        <input type="text" class="form-control" id="loc-input" name="emailValue" title="" placeholder="Insira a latitude e longitude da localização do evento">
-    </div>
+        <div class="form-group">
+            <span>Descrição:</span>
+            <input type="text" class="form-control" id="descricao-input" name="descricao" title="" placeholder="Insira a descrição do evento">
+        </div>
 
-    <button type="submit" class="login-btn btn btn-primary">Adicionar Evento</button>
+        <div class="form-group">
+            <span>Localização:</span>
+            <input type="text" class="form-control" id="loc-input" name="latlang" title="" placeholder="Insira a latitude e longitude da localização do evento">
+        </div>
+
+        <button type="submit" class="login-btn btn btn-primary">Adicionar Evento</button>
+    }
 </div>

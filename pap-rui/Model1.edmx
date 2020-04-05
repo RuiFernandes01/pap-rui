@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="iluminarteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="iluminarteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="eventos">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="titulo" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="subtitulo" Type="nvarchar(max)" />
           <Property Name="imagem" Type="nvarchar(max)" />
@@ -30,17 +30,20 @@
           <EntitySet Name="eventos" EntityType="Self.eventos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="iluminarteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="iluminarteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="eventos" EntityType="iluminarteModel.eventos" />
+          <EntitySet Name="Users" EntityType="iluminarteModel.Users" />
+        </EntityContainer>
         <EntityType Name="eventos">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="titulo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titulo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="subtitulo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="imagem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="datainicio" Type="DateTime" Precision="3" />
@@ -53,13 +56,9 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="iluminarteEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="eventos" EntityType="Self.eventos" />
-          <EntitySet Name="Users" EntityType="Self.Users" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -69,23 +68,23 @@
           <EntitySetMapping Name="eventos">
             <EntityTypeMapping TypeName="iluminarteModel.eventos">
               <MappingFragment StoreEntitySet="eventos">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="titulo" ColumnName="titulo" />
-                <ScalarProperty Name="subtitulo" ColumnName="subtitulo" />
-                <ScalarProperty Name="imagem" ColumnName="imagem" />
-                <ScalarProperty Name="datainicio" ColumnName="datainicio" />
-                <ScalarProperty Name="datafim" ColumnName="datafim" />
-                <ScalarProperty Name="descricao" ColumnName="descricao" />
                 <ScalarProperty Name="latlang" ColumnName="latlang" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="datafim" ColumnName="datafim" />
+                <ScalarProperty Name="datainicio" ColumnName="datainicio" />
+                <ScalarProperty Name="imagem" ColumnName="imagem" />
+                <ScalarProperty Name="subtitulo" ColumnName="subtitulo" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="iluminarteModel.Users">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
