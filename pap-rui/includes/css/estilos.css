@@ -3,6 +3,7 @@
 /*#region Navbar*/
 .navbar{width:100%;border-bottom:1px solid #CCC;}
 .navbar .login-btn{color:#f90035;text-transform:uppercase;}
+.navbar .logout-btn{color:#f90035;text-transform:uppercase;}
 .navbar .logo-img{}
 .navbar .logo-img img{height:80px;}
 

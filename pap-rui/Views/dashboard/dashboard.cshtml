@@ -4,10 +4,13 @@
     <div class="container">
 
         <div class="title">Eventos Marcados</div>
-
-        <ul class="list-section">
-            @Html.Partial("/Views/dashboard/eventosList.cshtml", Model)
-        </ul>
+        <div class="table">
+        <table>
+            <ul class="list-section">
+                @Html.Partial("/Views/dashboard/eventosList.cshtml", Model)
+            </ul>
+        </table>
+        </div>
 
         <a href="/AddEventos" title="Adicionar Eventos" class="add-events-btn">
             <i class="fas fa-star"></i>
