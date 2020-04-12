@@ -22,6 +22,8 @@ namespace pap_rui.Controllers
         }
 
 
+
+
         public ActionResult adicionarEventos(eventos teste)
         {
 
@@ -29,6 +31,33 @@ namespace pap_rui.Controllers
             db.SaveChanges();
 
             return RedirectToAction("Index", "dashboard");
+        }
+
+
+        [HttpPost]
+        public ActionResult Index(HttpPostedFileBase file)
+        {
+            var path = "";
+            if (file != null)
+            {
+                if (file.ContentLength > 0)
+                {
+                    if (System.IO.Path.GetExtension(file.FileName).ToLower() == ".jpg"
+                        || System.IO.Path.GetExtension(file.FileName).ToLower() == ".png"
+                    || System.IO.Path.GetExtension(file.FileName).ToLower() == ".gif"
+                        || System.IO.Path.GetExtension(file.FileName).ToLower() == ".jpeg")
+                    {
+                        path = System.IO.Path.Combine(Server.MapPath("~/images"), file.FileName);
+                        file.SaveAs(path);
+                        ViewBag.UploadSuccess = true;
+                    }
+
+
+
+                }
+            }
+
+            return View();
         }
     }
 }

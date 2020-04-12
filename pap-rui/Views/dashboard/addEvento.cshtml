@@ -2,7 +2,7 @@
 
 <div id="addeventos">
     <div class="container">
-        @using (Html.BeginForm("adicionarEventos", "AddEventos", FormMethod.Post))
+        @using (Html.BeginForm("Index", "AddEventos", FormMethod.Post, new{ enctype="multipart/form-data" }))
         {
             <div class="form-group">
 
@@ -18,8 +18,18 @@
 
             <div class="form-group">
                 <span>imagem:</span>
-                <input type="file" class="form-control" id="imagem-input" name="imagem" title="ImagemEvento" placeholder="Adicione uma imagem">
+                <input type="file" class="form-control" id="imagem-input" name="file" value="browse" title="ImagemEvento" placeholder="Adicione uma imagem">
+                <input type="submit" value="Upload">
+
+                @if(ViewBag.UploadSuccess == true)
+                {
+                    <span> Upload Completed</span>
+                }
+
             </div>
+
+
+
 
             <div class="form-group">
                 <span>Data de Inicio:</span>
