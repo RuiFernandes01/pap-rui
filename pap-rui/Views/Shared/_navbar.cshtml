@@ -1,8 +1,19 @@
 ﻿<div class="navbar">
     <div class="container d-flex">
         <a href="/" title="HomePage" class="logo-img">
-            <img src="~/images/png/logo.png" alt="Logo"/>
+            <img src="~/images/png/logo.png" alt="Logo" />
         </a>
+
+        <div class="text">
+        <ul>
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Quem Somos</a></li>
+            <li><a href="#">Academia</a></li>
+            <li><a href="#">Cursos</a></li>
+            <li><a href="#">Contactos</a></li>
+        </ul>
+        </div>
+
 
         <div class="">
             @if (Session["login"] == null)

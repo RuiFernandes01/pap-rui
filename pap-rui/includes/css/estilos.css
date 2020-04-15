@@ -6,7 +6,10 @@
 .navbar .logout-btn{color:#f90035;text-transform:uppercase;}
 .navbar .logo-img{}
 .navbar .logo-img img{height:80px;}
-
+.navbar .text{color:#f90035;text-transform:uppercase;}
+li {
+    float: left;
+}
 /*#endregion*/
 
 
@@ -20,12 +23,8 @@
     color: blue;
 }
 
-.footer {
-    display:none;
-    width: 100%;
-    background-color: gray;
-    text-align: center;
-}
+.footer{height: 90px; width: 100%; background-color: #ccccff; text-align: center;}
+.facebook-image{ height:80px;}
 
 .log-btn{
     margin-top:10px;
