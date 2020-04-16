@@ -1,14 +1,25 @@
 ﻿body{min-height:80vh;}
 
 /*#region Navbar*/
-.navbar{width:100%;border-bottom:1px solid #CCC;}
+.navbar{width:100%;border-bottom:1px solid #CCC;display: block;}
 .navbar .login-btn{color:#f90035;text-transform:uppercase;}
 .navbar .logout-btn{color:#f90035;text-transform:uppercase;}
 .navbar .logo-img{}
 .navbar .logo-img img{height:80px;}
 .navbar .text{color:#f90035;text-transform:uppercase;}
 li {
+    list-style-type: none;
     float: left;
+}
+
+li a {
+        padding: 16px;
+        color: #f90035;
+}
+
+li a:hover{
+    text-decoration:underline;
+    color:#f90035;
 }
 /*#endregion*/
 
