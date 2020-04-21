@@ -54,8 +54,8 @@ li a:hover{
 
 
 /*#region AddEventos*/
-.addEvents{background:#f90035;display:flex;align-items:center;justify-content:center;border-radius:10px;color:#FFF;height:50px;padding:0 25px;width:250px;transition:opacity 0.3s ease, transform 0.3s ease;text-decoration:none !important;}
-.addEvents{color:#FFF;padding-right:10px;}
-.addEvents{color:#FFF;font-size:20px;line-height:22px;font-family:'Roboto';}
-.addEvents{opacity:0.8;transform:scale(1.05);}
+.addEvents .add-events-btn{background:#f90035;display:flex;align-items:center;justify-content:center;border-radius:10px;color:#FFF;height:50px;padding:0 25px;width:250px;transition:opacity 0.3s ease, transform 0.3s ease;text-decoration:none !important;}
+.addEvents .add-events-btn i{color:#FFF;padding-right:10px;}
+.addEvents .add-events-btn span{color:#FFF;font-size:20px;line-height:22px;font-family:'Roboto';}
+.addEvents .add-events-btn:hover{opacity:0.8;transform:scale(1.05);}
 /*endregion*/

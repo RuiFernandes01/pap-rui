@@ -23,19 +23,19 @@ namespace pap_rui.Controllers
 
 
 
-
-        public ActionResult adicionarEventos(eventos teste)
+        [HttpPost]
+        public ActionResult adicionarEventos(eventos eventoToAdd)
         {
+            eventoToAdd.imagem = getImage(eventoToAdd.imagemFile);
 
-            db.eventos.Add(teste);
+            db.eventos.Add(eventoToAdd);
             db.SaveChanges();
 
             return RedirectToAction("Index", "dashboard");
         }
 
 
-        [HttpPost]
-        public ActionResult Index(HttpPostedFileBase file)
+        public string getImage(HttpPostedFileBase file)
         {
             var path = "";
             if (file != null)
@@ -49,7 +49,6 @@ namespace pap_rui.Controllers
                     {
                         path = System.IO.Path.Combine(Server.MapPath("~/images"), file.FileName);
                         file.SaveAs(path);
-                        ViewBag.UploadSuccess = true;
                     }
 
 
@@ -57,7 +56,7 @@ namespace pap_rui.Controllers
                 }
             }
 
-            return View();
+            return path;
         }
     }
 }

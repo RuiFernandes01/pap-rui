@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2035
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pap-rui", "pap-rui\pap-rui.csproj", "{BB368E2C-D337-4234-B8CD-85F7A97DC9FC}"
 EndProject
@@ -13,8 +13,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{BB368E2C-D337-4234-B8CD-85F7A97DC9FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BB368E2C-D337-4234-B8CD-85F7A97DC9FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB368E2C-D337-4234-B8CD-85F7A97DC9FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB368E2C-D337-4234-B8CD-85F7A97DC9FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB368E2C-D337-4234-B8CD-85F7A97DC9FC}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB368E2C-D337-4234-B8CD-85F7A97DC9FC}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

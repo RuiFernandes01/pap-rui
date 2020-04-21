@@ -2,7 +2,7 @@
 
 <div id="addeventos">
     <div class="container">
-        @using (Html.BeginForm("Index", "AddEventos", FormMethod.Post, new{ enctype="multipart/form-data" }))
+        @using (Html.BeginForm("adicionarEventos", "AddEventos", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             <div class="form-group">
 
@@ -18,14 +18,7 @@
 
             <div class="form-group">
                 <span>imagem:</span>
-                <input type="file" class="form-control" id="imagem-input" name="file" value="browse" title="ImagemEvento" placeholder="Adicione uma imagem">
-                <input type="submit" value="Upload">
-
-                @if(ViewBag.UploadSuccess == true)
-                {
-                    <span> Upload Completed</span>
-                }
-
+                <input type="file" class="form-control" id="imagem-input" name="imagemFile" value="browse" title="ImagemEvento" placeholder="Adicione uma imagem">
             </div>
 
 
@@ -51,12 +44,23 @@
                 <input type="text" class="form-control" id="loc-input" name="latlang" title="LocalizaçãoEvento" placeholder="Insira a latitude e longitude da localização do evento">
             </div>
 
+            <button type="submit" class="add-events-btn">Adicionar Eventos</button>
+
+
+            @*<div class="addEvents">
+                <a href="/dashboard" title="Adicionar Eventos" class="add-events-btn">
+                    <i class="fas fa-star"></i>
+                    <span>Adicionar Eventos</span>
+                </a>
+            </div>
 
 
             <div class="addEvents">
+                <a href="/dashboard" title="Adicionar Eventos" class="add-events-btn">
                 <i class="fas fa-star"></i>
-                <button type="submit" class="add-events-btn">Adicionar Eventos</button>
-            </div>
+
+                </a>
+            </div>*@
         }
     </div>
 </div>
