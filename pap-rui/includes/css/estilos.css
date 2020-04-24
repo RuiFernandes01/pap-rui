@@ -26,26 +26,26 @@ li a:hover{
 
 /*#region SlideShow*/
 .slide{background-image: url(/images/jpg/slide1.jpg);background-size:cover;height:100vh;background-repeat:no-repeat;}
-
-
 /*#endregion*/
 
 .coluna-evento {
     color: blue;
 }
 
-.footer{height: 90px; width: 100%; background-color: #ccccff; text-align: center;}
-.facebook-image{ height:80px;}
+.footer{height: 90px; width: 100%; background-color: #ccccff; text-align: center;font-size:30px; position:absolute;}
 
-.log-btn{
-    margin-top:10px;
+
+
+.log-btn {
+    margin-top: 10px;
 }
 
 
 /*#region Dashboard*/
 #dashboard{padding-top:50px;}
 #dashboard .title{font-size:23px;line-height:25px;font-family:'Roboto';color:#f90035;}
-#dashboard .tabela{padding-left:0;margin-top:25px;border: 1px solid black;border-collapse: collapse;height: 50px;padding: 15px;text-align: left; width:100%;}
+#dashboard .tabela, td, th, tr{border: 2px solid black;}
+#dashboard .tabela{padding-left:0;margin-top:25px;border: 2px solid black;border-collapse: collapse;height: 50px;padding: 15px;text-align: left; width:100%;}
 #dashboard .add-events-btn{background:#f90035;display:flex;align-items:center;justify-content:center;border-radius:10px;color:#FFF;height:50px;padding:0 25px;width:250px;transition:opacity 0.3s ease, transform 0.3s ease;text-decoration:none !important;}
 #dashboard .add-events-btn i{color:#FFF;padding-right:10px;}
 #dashboard .add-events-btn span{color:#FFF;font-size:20px;line-height:22px;font-family:'Roboto';}
@@ -54,8 +54,10 @@ li a:hover{
 
 
 /*#region AddEventos*/
-.addEvents .add-events-btn{background:#f90035;display:flex;align-items:center;justify-content:center;border-radius:10px;color:#FFF;height:50px;padding:0 25px;width:250px;transition:opacity 0.3s ease, transform 0.3s ease;text-decoration:none !important;}
-.addEvents .add-events-btn i{color:#FFF;padding-right:10px;}
-.addEvents .add-events-btn span{color:#FFF;font-size:20px;line-height:22px;font-family:'Roboto';}
-.addEvents .add-events-btn:hover{opacity:0.8;transform:scale(1.05);}
+.button {background:#f90035;display:flex;align-items:center;justify-content:center;border-radius:10px;color:#FFF;height:50px;padding:0 25px;width:250px;transition:opacity 0.3s ease, transform 0.3s ease;text-decoration:none !important;}
+.button i{color:#FFF;padding-right:10px;}
+.button span{color:#FFF;font-size:20px;line-height:22px;font-family:'Roboto';}
+.button:hover{opacity:0.8;transform:scale(1.05);}
 /*endregion*/
+
+
