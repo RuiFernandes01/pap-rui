@@ -1,21 +1,38 @@
 ﻿@model List<eventos>
 
+<tr>
+    <th>Titulo</th>
+    <th>Subtitulo</th>
+
+    <th>Data Inical</th>
+    <th>Data Final</th>
+    <th>Descrição do evento</th>
+    <th>Localização do evento</th>
+</tr>
+
 @foreach (eventos item in Model)
 {
     <tr>
-        <td><div>@item.titulo</div>
+        <td>
+            <div>@item.titulo</div>
         </td>
-        <td><div>@item.subtitulo</div>
+        <td>
+            <div>@item.subtitulo</div>
         </td>
-        <td><div>@item.datainicio</div>
+        <td>
+            <div>@item.datainicio</div>
         </td>
-        <td><div>@item.datafim</div>
+        <td>
+            <div>@item.datafim</div>
         </td>
-        <td><div>@item.descricao</div>
+        <td>
+            <div>@item.descricao</div>
         </td>
-        <td><div>@item.latlang</div>
+        <td>
+            <div>@item.latlang</div>
         </td>
-        <td><a title="Apagar" class="delete-btn" data-id="@item.id"><i class="fas fa-trash-alt"></i></a>
+        <td>
+            <a title="Apagar" class="delete-btn" data-id="@item.id"><i class="fas fa-trash-alt"></i></a>
         </td>
     </tr>
 }
