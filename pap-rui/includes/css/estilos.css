@@ -32,7 +32,7 @@ li a:hover{
     color: blue;
 }
 
-.footer{height: 90px; width: 100%; background-color: #ccccff; text-align: center;font-size:30px; position:absolute;}
+.footer{height: 90px; width: 100%; background-color: #d9d9d9; text-align: center;font-size:30px; position:absolute;}
 
 
 
@@ -51,6 +51,11 @@ li a:hover{
 #dashboard .add-events-btn i{color:#FFF;padding-right:10px;}
 #dashboard .add-events-btn span{color:#FFF;font-size:20px;line-height:22px;font-family:'Roboto';}
 #dashboard .add-events-btn:hover{opacity:0.8;transform:scale(1.05);}
+
+#dashboard .QuemSomos{padding-top:20px;font-size:23px;line-height:25px;font-family:'Roboto';color:#f90035;}
+#dashboard .Academia{padding-top:20px;font-size:23px;line-height:25px;font-family:'Roboto';color:#f90035;}
+#dashboard .Cursos{padding-top:20px;font-size:23px;line-height:25px;font-family:'Roboto';color:#f90035;}
+#dashboard .Contactos{padding-top:20px;font-size:23px;line-height:25px;font-family:'Roboto';color:#f90035;}
 /*#endregion*/
 
 

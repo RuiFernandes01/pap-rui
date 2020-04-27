@@ -7,16 +7,60 @@
         <div class="table">
             <table class="tabela list-section">
 
-                    @Html.Partial("/Views/dashboard/eventosList.cshtml", Model)
+                @Html.Partial("/Views/dashboard/eventosList.cshtml", Model)
 
 
-</table>
+            </table>
         </div>
 
         <a href="/AddEventos" title="Adicionar Eventos" class="add-events-btn">
             <i class="fas fa-star"></i>
             <span>Adicionar Eventos</span>
         </a>
+
+        <div class="QuemSomos">
+
+            <label for="Quem Somos">Quem Somos:</label><br>
+
+            <textarea id="Quem Somos" placeholder="Insira texto aqui"></textarea>
+
+
+            <button class="button" type="submit">Salvar</button>
+        </div>
+
+
+        <div class="Academia">
+
+            <label for="Academia">Academia:</label><br>
+
+            <textarea id="Academia" placeholder="Insira texto aqui"></textarea>
+
+
+            <button class="button" type="submit">Salvar</button>
+        </div>
+
+
+        <div class="Cursos">
+
+            <label for="Cursos">Cursos:</label><br>
+
+            <textarea id="Cursos" placeholder="Insira texto aqui"></textarea>
+
+
+            <button class="button" type="submit">Salvar</button>
+        </div>
+
+
+        <div class="Contactos">
+
+            <label for="Contactos">Contactos:</label><br>
+
+            <textarea id="Contactos" placeholder="Insira texto aqui"></textarea>
+
+
+            <button class="button" type="submit">Salvar</button>
+        </div>
+
     </div>
 </div>
 
