@@ -1,4 +1,4 @@
-﻿<div class="container">
+﻿<div class="container" id="login-page">
     @using (Html.BeginForm("checkLogin", "Login", FormMethod.Post))
     {
         if (ViewBag.loginFailed != null)
@@ -6,18 +6,27 @@
             <div>@ViewBag.loginFailed</div>
         }
 
-        <div class="form-group">
-            <span>Email:</span>
+        <div class="email-group">
+            <div class="email">
+                <span>Email:</span>
+            </div>
             <input type="text" class="form-control" id="email-input" name="emailValue" title="Insira o seu Email" placeholder="Insira o seu Email">
         </div>
-        <div>
-            <span>Password:</span>
+        <div class="pass-group">
+            <div class="pass">
+                <span>Password:</span>
+            </div>
             <input type="password" class="form-control" id="password-input" name="passwordValue" title="Insira a sua Password" placeholder="Insira a sua Password" />
+
+
+       </div>
+
+        <div class="button-group">
+            <button type="submit" class="button">Login</button>
         </div>
 
 
-        
-        <button type="submit" class="button">Login</button>
 
-    }
-</div>
+
+            }
+        </div>
