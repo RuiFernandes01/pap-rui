@@ -32,6 +32,30 @@ namespace pap_rui
             );
 
             routes.MapRoute(
+                name: "savequemsomos",
+                url: "savequemsomos",
+                defaults: new { controller = "dashboard", action = "savequemsomos" }
+            );
+
+            routes.MapRoute(
+                name: "saveacademia",
+                url: "saveacademia",
+                defaults: new { controller = "dashboard", action = "saveacademia" }
+            );
+
+            routes.MapRoute(
+                name: "savecursos",
+                url: "savecursos",
+                defaults: new { controller = "dashboard", action = "savecursos" }
+            );
+
+            routes.MapRoute(
+                name: "savecontactos",
+                url: "savecontactos",
+                defaults: new { controller = "dashboard", action = "savecontactos" }
+            );
+
+            routes.MapRoute(
                 name: "addEventos",
                 url: "AddEventos",
                 defaults: new { controller = "AddEventos", action = "Index" }

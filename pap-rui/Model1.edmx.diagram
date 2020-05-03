@@ -7,6 +7,7 @@
       <Diagram DiagramId="06bc2a23a8e34ef6b991f0bac99300df" Name="Diagram1">
         <EntityTypeShape EntityType="iluminarteModel.eventos" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="iluminarteModel.Users" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="iluminarteModel.texto" Width="1.5" PointX="3.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

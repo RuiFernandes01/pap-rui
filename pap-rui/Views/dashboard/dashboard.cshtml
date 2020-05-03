@@ -1,79 +1,90 @@
 ﻿@model List<eventos>
 
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-lite.min.js"></script>
+
 <div id="dashboard">
     <div class="container">
-       <div class="half">
-        <div class="title">Eventos Marcados</div>
-        <div class="table">
-            <table class="tabela list-section">
+        <div class="half">
+            <div class="title">Eventos Marcados</div>
+            <div class="table">
+                <table class="tabela list-section">
 
-                @Html.Partial("/Views/dashboard/eventosList.cshtml", Model)
+                    @Html.Partial("/Views/dashboard/eventosList.cshtml", Model)
 
 
-            </table>
+                </table>
+            </div>
+
+            <a href="/AddEventos" title="Adicionar Eventos" class="add-events-btn">
+                <i class="fas fa-star"></i>
+                <span>Adicionar Eventos</span>
+            </a>
+
         </div>
 
-        <a href="/AddEventos" title="Adicionar Eventos" class="add-events-btn">
-            <i class="fas fa-star"></i>
-            <span>Adicionar Eventos</span>
-        </a>
-
-        </div>
-
-       <div class="QuemSomos">
-           <div class="padding">
-               <label for="QuemSomos">Quem Somos:</label><br>
-           </div>
-
-           <textarea class="textarea" id="QuemSomos" placeholder="Insira texto aqui"></textarea>
-
-           <div class="button-padding">
-               <button class="button" type="submit">Salvar</button>
-           </div>
-       </div>
+        <form action="/savequemsomos" method="post">
+            <div class="quem-somos">
+                <div class="padding">Quem Somos:</div>
+                <div class="summernote">
+                    <textarea class="textarea" id="quem-somos-txt" placeholder="Insira texto aqui"></textarea>
+                </div>
+                <div class="button-padding">
+                    <button class="button" type="submit">Salvar</button>
+                </div>
+            </div>
+        </form>
 
 
-
-
-
+        <form action="/saveacademia"method="post">
         <div class="Academia">
             <div class="padding">
-            <label for="Academia">Academia:</label><br>
+                Academia:
             </div>
-                <textarea class="textarea" id="Academia" placeholder="Insira texto aqui"></textarea>
-
+            <div class="summernote">
+                <textarea class="textarea" id="academia-txt" placeholder="Insira texto aqui"></textarea>
+            </div>
             <div class="button-padding">
                 <button class="button" type="submit">Salvar</button>
             </div>
-           </div>
+        </div>
+        </form>
 
+        <form action="/savecursos"method="post">
         <div class="Cursos">
             <div class="padding">
-                <label for="Cursos">Cursos:</label><br>
+                Cursos:
             </div>
-            <textarea class="textarea" id="Cursos" placeholder="Insira texto aqui"></textarea>
-
+            <div class="summernote">
+                <textarea class="textarea" id="cursos-txt" placeholder="Insira texto aqui"></textarea>
+            </div>
 
             <div class="button-padding">
                 <button class="button" type="submit">Salvar</button>
             </div>
         </div>
 
+        </form>
 
+
+        <form action="/savecontactos"method="post">
         <div class="Contactos">
 
             <div class="padding">
-                <label for="Contactos">Contactos:</label><br>
+                Contactos:
             </div>
-            <textarea class="textarea" id="Contactos" placeholder="Insira texto aqui"></textarea>
-
+            <div class="summernote">
+                <textarea class="textarea" id="contactos-txt" placeholder="Insira texto aqui"></textarea>
+            </div>
 
             <div class="button-padding">
                 <button class="button" type="submit">Salvar</button>
             </div>
-        </div>
 
-            </div>
+        </div>
+        </form>
+
+    </div>
 </div>
 
 <script>

@@ -24,6 +24,26 @@ namespace pap_rui.Controllers
             }
         }
 
+        public ActionResult savequemsomos()
+        {
+            return RedirectToAction("Index", "dashboard");
+        }
+
+        public ActionResult saveacademia()
+        {
+            return RedirectToAction("Index", "dashboard");
+        }
+
+        public ActionResult savecursos()
+        {
+            return RedirectToAction("Index", "dashboard");
+        }
+
+        public ActionResult savecontactos()
+        {
+            return RedirectToAction("Index", "dashboard");
+        }
+
         public List<eventos> getEventosList()
         {
             List<eventos> listaEventos = db.eventos.ToList();

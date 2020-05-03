@@ -18,6 +18,14 @@
           <Property Name="descricao" Type="nvarchar(max)" />
           <Property Name="latlang" Type="nvarchar" MaxLength="20" />
         </EntityType>
+        <EntityType Name="texto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titulo" Type="nvarchar(max)" />
+          <Property Name="descrição" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="id" />
@@ -28,6 +36,7 @@
         </EntityType>
         <EntityContainer Name="iluminarteModelStoreContainer">
           <EntitySet Name="eventos" EntityType="Self.eventos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="texto" EntityType="Self.texto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -37,6 +46,7 @@
         <EntityContainer Name="iluminarteEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="eventos" EntityType="iluminarteModel.eventos" />
           <EntitySet Name="Users" EntityType="iluminarteModel.Users" />
+          <EntitySet Name="texto" EntityType="iluminarteModel.texto" />
         </EntityContainer>
         <EntityType Name="eventos">
           <Key>
@@ -58,6 +68,14 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="texto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titulo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="descrição" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -84,6 +102,15 @@
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="texto">
+            <EntityTypeMapping TypeName="iluminarteModel.texto">
+              <MappingFragment StoreEntitySet="texto">
+                <ScalarProperty Name="descrição" ColumnName="descrição" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

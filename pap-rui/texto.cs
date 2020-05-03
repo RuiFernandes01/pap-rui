@@ -11,18 +11,11 @@ namespace pap_rui
 {
     using System;
     using System.Collections.Generic;
-    using System.Web;
-
-    public partial class eventos
+    
+    public partial class texto
     {
         public int id { get; set; }
         public string titulo { get; set; }
-        public string subtitulo { get; set; }
-        public string imagem { get; set; }
-        public HttpPostedFileBase imagemFile { get; set; }
-        public Nullable<System.DateTime> datainicio { get; set; }
-        public Nullable<System.DateTime> datafim { get; set; }
-        public string descricao { get; set; }
-        public string latlang { get; set; }
+        public string descrição { get; set; }
     }
 }
