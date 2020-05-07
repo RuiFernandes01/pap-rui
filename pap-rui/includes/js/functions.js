@@ -1,6 +1,11 @@
 ﻿$(document).ready(function () {
-    $('#quem-somos-txt').summernote();
-    $('#academia-txt').summernote();
-    $('#cursos-txt').summernote();
-    $('#contactos-txt').summernote();
+
+
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        items: 1,
+    })
 })
+

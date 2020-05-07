@@ -1,4 +1,5 @@
-﻿body{min-height:80vh;}
+﻿body{min-height:80vh;
+}
 
 /*#region Navbar*/
 .navbar{width:100%;border-bottom:1px solid #CCC;display: block;}
@@ -25,7 +26,9 @@ li a:hover{
 
 
 /*#region SlideShow*/
-.slide{background-image: url(/images/jpg/slide1.jpg);background-size:cover;height:100vh;background-repeat:no-repeat;}
+.owl-carousel{}
+.slide {background-image: url(/images/jpg/teatro22.jpg); background-size: cover; height: 100vh; background-repeat: no-repeat;}
+.slide2{background-image: url(/images/jpg/mainslider4.jpg);background-size:cover;height:100vh;background-repeat:no-repeat;}
 /*#endregion*/
 
 .coluna-evento {
