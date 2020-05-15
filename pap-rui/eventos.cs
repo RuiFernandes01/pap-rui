@@ -24,5 +24,8 @@ namespace pap_rui
         public Nullable<System.DateTime> datafim { get; set; }
         public string descricao { get; set; }
         public string latlang { get; set; }
+        public int modificadoPor { get; set; }
+    
+        public virtual Users Users { get; set; }
     }
 }

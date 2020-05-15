@@ -16,11 +16,13 @@ namespace pap_rui.Controllers
 
         public ActionResult checkLogin(string emailValue, string passwordValue)
         {
-            var resultValue = db.Users.Where(x => x.email == emailValue && x.password == passwordValue).Count();
+            var result = db.Users.Where(x => x.email == emailValue && x.password == passwordValue);
 
-            if(resultValue > 0)
+
+            if(result.Count() > 0)
             {
                 Session["login"] = "login";
+                Session["userID"] = result.FirstOrDefault().id;
                 return RedirectToAction("Index","dashboard");
             }
             else

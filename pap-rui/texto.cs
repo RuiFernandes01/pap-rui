@@ -17,5 +17,8 @@ namespace pap_rui
         public int id { get; set; }
         public string titulo { get; set; }
         public string descrição { get; set; }
+        public int modificadoPor { get; set; }
+    
+        public virtual Users Users { get; set; }
     }
 }

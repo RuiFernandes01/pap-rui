@@ -193,11 +193,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\pap-rui.dll" />
+    <Content Include="bin\pap-rui.pdb" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\jpg\artescircenses.jpg" />
     <Content Include="images\jpg\mainslider4.jpg" />
-    <Content Include="images\jpg\placeholder.jpg" />
+    <Content Include="images\jpg\satori.jpg" />
     <Content Include="images\jpg\slide1.jpg" />
     <Content Include="images\jpg\teatro22.jpg" />
     <Content Include="images\png\logo.png" />

@@ -17,6 +17,7 @@
           <Property Name="datafim" Type="datetime" />
           <Property Name="descricao" Type="nvarchar(max)" />
           <Property Name="latlang" Type="nvarchar" MaxLength="20" />
+          <Property Name="modificadoPor" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="texto">
           <Key>
@@ -25,6 +26,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="titulo" Type="nvarchar(max)" />
           <Property Name="descrição" Type="nvarchar(max)" />
+          <Property Name="modificadoPor" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -34,10 +36,42 @@
           <Property Name="email" Type="nvarchar(max)" Nullable="false" />
           <Property Name="password" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
+        <Association Name="FK_eventos_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="eventos" Type="Self.eventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="eventos">
+              <PropertyRef Name="modificadoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_texto_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="texto" Type="Self.texto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="texto">
+              <PropertyRef Name="modificadoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="iluminarteModelStoreContainer">
           <EntitySet Name="eventos" EntityType="Self.eventos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="texto" EntityType="Self.texto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_eventos_Users" Association="Self.FK_eventos_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="eventos" EntitySet="eventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_texto_Users" Association="Self.FK_texto_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="texto" EntitySet="texto" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -45,8 +79,16 @@
       <Schema Namespace="iluminarteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="iluminarteEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="eventos" EntityType="iluminarteModel.eventos" />
-          <EntitySet Name="Users" EntityType="iluminarteModel.Users" />
           <EntitySet Name="texto" EntityType="iluminarteModel.texto" />
+          <EntitySet Name="Users" EntityType="iluminarteModel.Users" />
+          <AssociationSet Name="FK_eventos_Users" Association="iluminarteModel.FK_eventos_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="eventos" EntitySet="eventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_texto_Users" Association="iluminarteModel.FK_texto_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="texto" EntitySet="texto" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="eventos">
           <Key>
@@ -60,14 +102,8 @@
           <Property Name="datafim" Type="DateTime" Precision="3" />
           <Property Name="descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="latlang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="modificadoPor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="iluminarteModel.FK_eventos_Users" FromRole="eventos" ToRole="Users" />
         </EntityType>
         <EntityType Name="texto">
           <Key>
@@ -76,8 +112,44 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="titulo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="descrição" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="modificadoPor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="iluminarteModel.FK_texto_Users" FromRole="texto" ToRole="Users" />
         </EntityType>
-      </Schema>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="eventos" Relationship="iluminarteModel.FK_eventos_Users" FromRole="Users" ToRole="eventos" />
+          <NavigationProperty Name="texto" Relationship="iluminarteModel.FK_texto_Users" FromRole="Users" ToRole="texto" />
+        </EntityType>
+        <Association Name="FK_eventos_Users">
+          <End Type="iluminarteModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="iluminarteModel.eventos" Role="eventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="eventos">
+              <PropertyRef Name="modificadoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_texto_Users">
+          <End Type="iluminarteModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="iluminarteModel.texto" Role="texto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="texto">
+              <PropertyRef Name="modificadoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -86,6 +158,7 @@
           <EntitySetMapping Name="eventos">
             <EntityTypeMapping TypeName="iluminarteModel.eventos">
               <MappingFragment StoreEntitySet="eventos">
+                <ScalarProperty Name="modificadoPor" ColumnName="modificadoPor" />
                 <ScalarProperty Name="latlang" ColumnName="latlang" />
                 <ScalarProperty Name="descricao" ColumnName="descricao" />
                 <ScalarProperty Name="datafim" ColumnName="datafim" />
@@ -97,20 +170,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="texto">
+            <EntityTypeMapping TypeName="iluminarteModel.texto">
+              <MappingFragment StoreEntitySet="texto">
+                <ScalarProperty Name="modificadoPor" ColumnName="modificadoPor" />
+                <ScalarProperty Name="descrição" ColumnName="descrição" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="iluminarteModel.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="texto">
-            <EntityTypeMapping TypeName="iluminarteModel.texto">
-              <MappingFragment StoreEntitySet="texto">
-                <ScalarProperty Name="descrição" ColumnName="descrição" />
-                <ScalarProperty Name="titulo" ColumnName="titulo" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

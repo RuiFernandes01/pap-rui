@@ -36,56 +36,84 @@
         </form>
 
 
-        <form action="/saveacademia"method="post">
-        <div class="Academia">
-            <div class="padding">
-                Academia:
+        <form action="/saveacademia" method="post">
+            <div class="Academia">
+                <div class="padding">
+                    Academia:
+                </div>
+                <div class="summernote">
+                    <textarea class="textarea" id="academia-txt" placeholder="Insira texto aqui"></textarea>
+                </div>
+                <div class="button-padding">
+                    <button class="button" type="submit">Salvar</button>
+                </div>
             </div>
-            <div class="summernote">
-                <textarea class="textarea" id="academia-txt" placeholder="Insira texto aqui"></textarea>
-            </div>
-            <div class="button-padding">
-                <button class="button" type="submit">Salvar</button>
-            </div>
-        </div>
         </form>
 
-        <form action="/savecursos"method="post">
-        <div class="Cursos">
-            <div class="padding">
-                Cursos:
-            </div>
-            <div class="summernote">
-                <textarea class="textarea" id="cursos-txt" placeholder="Insira texto aqui"></textarea>
-            </div>
+        <form action="/savecursos" method="post">
+            <div class="Cursos">
+                <div class="padding">
+                    Cursos:
+                </div>
+                <div class="summernote">
+                    <textarea class="textarea" id="cursos-txt" placeholder="Insira texto aqui"></textarea>
+                </div>
 
-            <div class="button-padding">
-                <button class="button" type="submit">Salvar</button>
+                <div class="button-padding">
+                    <button class="button" type="submit">Salvar</button>
+                </div>
             </div>
-        </div>
 
         </form>
 
 
-        <form action="/savecontactos"method="post">
-        <div class="Contactos">
+        <form action="/savecontactos" method="post">
+            <div class="Contactos">
 
-            <div class="padding">
-                Contactos:
-            </div>
-            <div class="summernote">
-                <textarea class="textarea" id="contactos-txt" placeholder="Insira texto aqui"></textarea>
-            </div>
+                <div class="padding">
+                    Contactos:
+                </div>
+                <div class="summernote">
+                    <textarea class="textarea" id="contactos-txt" placeholder="Insira texto aqui"></textarea>
+                </div>
 
-            <div class="button-padding">
-                <button class="button" type="submit">Salvar</button>
-            </div>
+                <div class="button-padding">
+                    <button class="button" type="submit">Salvar</button>
+                </div>
 
-        </div>
+            </div>
         </form>
+
+        <div class="redes-sociais">
+            Redes Sociais :
+
+            <form action="/saveredessociais">
+                Escolha a rede social que quer adicionar:
+                <select class="dropbtn" id="redesocial" name="redesocial">
+                    <option value="Instagram">Instagram</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Twitter">Twitter</option>
+                    <option value="Linkedin">Linkedin</option>
+                </select>
+                <div class="button-padding">
+                    <button class="button" type="submit">Salvar</button>
+                </div>
+
+             
+            </form>
+        </div>
+
+
+
 
     </div>
+
+
+
 </div>
+
+
+
 
 <script>
     $(document).ready(function () {

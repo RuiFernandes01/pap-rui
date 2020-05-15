@@ -27,7 +27,7 @@ namespace pap_rui.Controllers
         public ActionResult adicionarEventos(eventos eventoToAdd)
         {
             eventoToAdd.imagem = getImage(eventoToAdd.imagemFile);
-
+            eventoToAdd.modificadoPor = Convert.ToInt32(Session["userID"]);
             db.eventos.Add(eventoToAdd);
             db.SaveChanges();
 
