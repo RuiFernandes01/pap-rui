@@ -3,30 +3,51 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace pap_rui.Controllers
 {
     public class HomeController : Controller
     {
+        private iluminarteEntities db = new iluminarteEntities();
+        public int quemSomosID = Convert.ToInt32(WebConfigurationManager.AppSettings["quemsomosID"]);
+        public int academiaID = Convert.ToInt32(WebConfigurationManager.AppSettings["academiaID"]);
+        public int cursosID = Convert.ToInt32(WebConfigurationManager.AppSettings["cursosID"]);
+        public int contactosID = Convert.ToInt32(WebConfigurationManager.AppSettings["contactosID"]);
         public ActionResult Index()
         {
+            ViewBag.quemSomosTxt = getQuemSomosTxt();
+            ViewBag.academiatxt = getacademiatxt();
+            ViewBag.cursostxt = getcursostxt();
+            ViewBag.contactostxt = getcontactostxt();
             return View();
+
         }
 
 
-        public ActionResult About()
+        public string getQuemSomosTxt()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            texto quemSomos = db.texto.Where(p => p.id == quemSomosID).FirstOrDefault();
+            return quemSomos.descrição;
         }
 
-        public ActionResult Contact()
+        public string getacademiatxt()
         {
-            ViewBag.Message = "Your contact page.";
+            texto academia = db.texto.Where(p => p.id == academiaID).FirstOrDefault();
+            return academia.descrição;
+        }
 
-            return View();
+        public string getcursostxt()
+        {
+            texto cursos = db.texto.Where(p => p.id == cursosID).FirstOrDefault();
+            return cursos.descrição;
+        }
+
+        public string getcontactostxt()
+        {
+            texto contactos = db.texto.Where(p => p.id == contactosID).FirstOrDefault();
+            return contactos.descrição;
         }
     }
 }
