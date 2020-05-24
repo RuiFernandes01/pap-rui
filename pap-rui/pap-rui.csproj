@@ -199,6 +199,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\jpg\artescircenses.jpg" />
+    <Content Include="images\jpg\arteurbana.jpg" />
+    <Content Include="images\jpg\arteurbana.png" />
+    <Content Include="images\jpg\mainslider2.jpg" />
     <Content Include="images\jpg\mainslider4.jpg" />
     <Content Include="images\jpg\satori.jpg" />
     <Content Include="images\jpg\slide1.jpg" />
