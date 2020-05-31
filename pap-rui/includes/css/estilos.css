@@ -1,13 +1,12 @@
 ﻿body{min-height:80vh;
 }
 
-/*#region Navbar*/
 .navbar{width:100%;border-bottom:1px solid #CCC;display: block;}
 .navbar .login-btn{color:#f90035;text-transform:uppercase;font-family:'Roboto';}
 .navbar .logout-btn{color:#f90035;text-transform:uppercase;font-family:'Roboto';}
 .navbar .logo-img{}
 .navbar .logo-img img{height:80px;}
-.navbar .text{color:#f90035;text-transform:uppercase; font-family:'Roboto';}
+.navbar .nav-links{color:#f90035;text-transform:uppercase; font-family:'Roboto';}
 li {
     list-style-type: none;
     float: left;
@@ -27,12 +26,12 @@ li a:hover{
 
 /*#region SlideShow*/
 
-.slide {background-image: url(/images/jpg/teatro22.jpg); background-size: cover; height: 100vh; background-repeat: no-repeat;}
-.slide2{background-image: url(/images/jpg/mainslider4.jpg);background-size:cover;height:100vh;background-repeat:no-repeat;}
-.slide3{background-image: url(/images/jpg/satori.jpg);background-size:cover;height:100vh;background-repeat:no-repeat;}
-.slide4{background-image: url(/images/jpg/artescircenses.jpg);background-size:cover;height:100vh;background-repeat:no-repeat;}
-.slide5{background-image: url(/images/jpg/arteurbana.jpg);background-size:cover;height:100vh;background-repeat:no-repeat;}
-.slide6{background-image: url(/images/jpg/arteurbana.png);background-size:cover;height:100vh;background-repeat:no-repeat;}
+.slide {background-image: url(/images/jpg/teatro22.jpg); background-size: cover; height: 100vh; background-repeat: no-repeat;max-width: 100%;background-position:center;}
+.slide2{background-image: url(/images/jpg/mainslider4.jpg);background-size:cover;height:100vh;background-repeat:no-repeat;background-position:center;}
+.slide3{background-image: url(/images/jpg/satori.jpg);background-size:cover;height:100vh;background-repeat:no-repeat;background-position:center;}
+.slide4{background-image: url(/images/jpg/artescircenses.jpg);background-size:cover;height:100vh;background-repeat:no-repeat;background-position:center;}
+.slide5{background-image: url(/images/jpg/arteurbana.jpg);background-size:cover;height:100vh;background-repeat:no-repeat;background-position:center;}
+.slide6{background-image: url(/images/jpg/arteurbana.png);background-size:cover;height:100vh;background-repeat:no-repeat;max-width: 100%;background-position:center;}
 
 /*#endregion*/
 
