@@ -6,6 +6,14 @@
         items: 1,
     })
 
+    $('.header-link').click(function (e) {
+        e.preventDefault();
+        var target = $(this).data('target');
+        $('html, body').animate({
+            scrollTop: $("#" + target).offset().top
+        }, 600);
+    })
+
     var map = L.map('mapid').setView([37.138957, -8.021973], 14);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
