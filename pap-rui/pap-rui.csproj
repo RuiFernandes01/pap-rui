@@ -159,7 +159,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AddEventosController.cs" />
     <Compile Include="Controllers\dashboardController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Home\HomeController.cs" />
+    <Compile Include="Controllers\Home\slideshowController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\Shared\FooterController.cs" />
     <Compile Include="Controllers\Shared\NavbarController.cs" />
@@ -248,6 +249,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="images\svg\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\slideshow\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -262,6 +264,7 @@
     <Content Include="Views\Shared\_footer.cshtml" />
     <Content Include="Views\dashboard\addEvento.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\Home\_slideshow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

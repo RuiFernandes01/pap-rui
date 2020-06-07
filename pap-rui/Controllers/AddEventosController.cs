@@ -47,12 +47,10 @@ namespace pap_rui.Controllers
                     || System.IO.Path.GetExtension(file.FileName).ToLower() == ".gif"
                         || System.IO.Path.GetExtension(file.FileName).ToLower() == ".jpeg")
                     {
-                        path = System.IO.Path.Combine(Server.MapPath("~/images"), file.FileName);
+                        path = System.IO.Path.Combine(Server.MapPath("~/images/upload_files"), file.FileName);
                         file.SaveAs(path);
                     }
-
-
-
+                    path = "/images/upload_files/" + file.FileName;
                 }
             }
 

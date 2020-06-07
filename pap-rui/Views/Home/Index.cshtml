@@ -2,17 +2,7 @@
     ViewBag.Title = "Home Page";
 }
 
-
-<div class="owl-carousel">
-    <div class="w-100 slide item"></div>
-    <div class="w-100 slide2 item"></div>
-    <div class="w-100 slide3 item"></div>
-    <div class="w-100 slide4 item"></div>
-    <div class="w-100 slide5 item"></div>
-</div>
-
-
-
+@Html.Action("_slideshow", "slideshow")
 
 <div class="container">
     <div id="QuemSomos">
@@ -40,11 +30,6 @@
         <div class="main-title">Localização</div>
         <div class="main-descricao"></div>
     </div>
-
-
-    <div id="mapid"></div>
-
-
-
 </div>
+<div id="mapid"></div>
 
