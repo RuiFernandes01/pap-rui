@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using pap_rui.Methods;
+using pap_rui.Models;
 
 namespace pap_rui.Controllers
 {
@@ -24,11 +26,11 @@ namespace pap_rui.Controllers
 
 
         [HttpPost]
-        public ActionResult adicionarEventos(eventos eventoToAdd)
+        public ActionResult adicionarEventos(Eventos eventoToAdd)
         {
             eventoToAdd.imagem = getImage(eventoToAdd.imagemFile);
             eventoToAdd.modificadoPor = Convert.ToInt32(Session["userID"]);
-            db.eventos.Add(eventoToAdd);
+            db.eventos.Add(generalMethods.ConvertEventToDb(eventoToAdd));
             db.SaveChanges();
 
             return RedirectToAction("Index", "dashboard");

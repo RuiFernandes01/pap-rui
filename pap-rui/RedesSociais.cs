@@ -12,18 +12,9 @@ namespace pap_rui
     using System;
     using System.Collections.Generic;
     
-    public partial class eventos
+    public partial class RedesSociais
     {
         public int id { get; set; }
         public string titulo { get; set; }
-        public string subtitulo { get; set; }
-        public string imagem { get; set; }
-        public System.DateTime datainicio { get; set; }
-        public System.DateTime datafim { get; set; }
-        public string descricao { get; set; }
-        public string latlang { get; set; }
-        public int modificadoPor { get; set; }
-    
-        public virtual Users Users { get; set; }
     }
 }

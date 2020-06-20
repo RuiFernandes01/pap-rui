@@ -13,11 +13,20 @@
           <Property Name="titulo" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="subtitulo" Type="nvarchar(max)" />
           <Property Name="imagem" Type="nvarchar(max)" />
-          <Property Name="datainicio" Type="datetime" />
-          <Property Name="datafim" Type="datetime" />
+          <Property Name="datainicio" Type="datetime" Nullable="false" />
+          <Property Name="datafim" Type="datetime" Nullable="false" />
           <Property Name="descricao" Type="nvarchar(max)" />
           <Property Name="latlang" Type="nvarchar" MaxLength="20" />
           <Property Name="modificadoPor" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'iluminarte.dbo.RedesSociais' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RedesSociais">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="titulo" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="texto">
           <Key>
@@ -64,6 +73,12 @@
           <EntitySet Name="eventos" EntityType="Self.eventos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="texto" EntityType="Self.texto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RedesSociais" EntityType="Self.RedesSociais" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RedesSociais].[id] AS [id], 
+    [RedesSociais].[titulo] AS [titulo]
+    FROM [dbo].[RedesSociais] AS [RedesSociais]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_eventos_Users" Association="Self.FK_eventos_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="eventos" EntitySet="eventos" />
@@ -81,6 +96,7 @@
           <EntitySet Name="eventos" EntityType="iluminarteModel.eventos" />
           <EntitySet Name="texto" EntityType="iluminarteModel.texto" />
           <EntitySet Name="Users" EntityType="iluminarteModel.Users" />
+          <EntitySet Name="RedesSociais" EntityType="iluminarteModel.RedesSociais" />
           <AssociationSet Name="FK_eventos_Users" Association="iluminarteModel.FK_eventos_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="eventos" EntitySet="eventos" />
@@ -98,8 +114,8 @@
           <Property Name="titulo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="subtitulo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="imagem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="datainicio" Type="DateTime" Precision="3" />
-          <Property Name="datafim" Type="DateTime" Precision="3" />
+          <Property Name="datainicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="datafim" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="latlang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="modificadoPor" Type="Int32" Nullable="false" />
@@ -124,6 +140,13 @@
           <Property Name="password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="eventos" Relationship="iluminarteModel.FK_eventos_Users" FromRole="Users" ToRole="eventos" />
           <NavigationProperty Name="texto" Relationship="iluminarteModel.FK_texto_Users" FromRole="Users" ToRole="texto" />
+        </EntityType>
+        <EntityType Name="RedesSociais">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="titulo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_eventos_Users">
           <End Type="iluminarteModel.Users" Role="Users" Multiplicity="1" />
@@ -185,6 +208,14 @@
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RedesSociais">
+            <EntityTypeMapping TypeName="iluminarteModel.RedesSociais">
+              <MappingFragment StoreEntitySet="RedesSociais">
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

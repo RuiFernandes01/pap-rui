@@ -62,6 +62,12 @@ namespace pap_rui
             );
 
             routes.MapRoute(
+                name: "Page",
+                url: "page/{id}",
+                defaults: new { controller = "Page", action = "Index" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

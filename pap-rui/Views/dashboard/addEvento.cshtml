@@ -39,9 +39,16 @@
                 <input type="text" class="form-control" id="descricao-input" name="descricao" title="DescricaoEvento" placeholder="Insira a descrição do evento">
             </div>
 
-            <div class="form-group">
-                <span>Localização:</span>
-                <input type="text" class="form-control" id="loc-input" name="latlang" title="LocalizaçãoEvento" placeholder="Insira a latitude e longitude da localização do evento">
+            <div class="loc-group">
+                <div class="lat-group">
+                    <span>Latitude:</span>
+                    <input type="text" class="form-control" id="latitude-input" name="latitude" title="LatitudeEvento" placeholder="Insira a latitude da localização do evento">
+                </div>
+
+                <div class="lon-group">
+                    <span>Longitude:</span>
+                    <input type="text" class="form-control" id="longitude-input" name="longitude" title="LongitudeEvento" placeholder="Insira a longitude da localização do evento">
+                </div>
             </div>
 
             <button class="button" type="submit">Adicionar Eventos</button>

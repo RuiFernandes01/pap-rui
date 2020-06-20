@@ -1,0 +1,12 @@
+﻿@model pap_rui.Models.Eventos
+
+<div id="evento-page">
+
+    <div class="container">
+        <div class="evento-title">@Model.titulo</div>
+        <div class="evento-date">@Model.datainicio.ToShortDateString() até @Model.datafim.ToShortDateString()</div>
+        <img class="evento-img" alt="@Model.titulo" src="@Model.imagem" />
+        <div class="evento-subtitle">@Model.subtitulo</div>
+        <div class="evento-description">@Html.Raw(Model.descricao)</div>
+    </div>
+</div>
