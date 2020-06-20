@@ -20,10 +20,10 @@
         <div>@item.subtitulo</div>
     </td>
     <td>
-        <div>@item.datainicio</div>
+        <div>@item.datainicio.ToShortDateString()</div>
     </td>
     <td>
-        <div>@item.datafim</div>
+        <div>@item.datafim.ToShortDateString()</div>
     </td>
     <td>
         <div>@item.descricao</div>
@@ -36,7 +36,7 @@
         <a  class="delete-btn" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash-alt"></i></a>
     </td>
     <td>
-        <a title="Editar" class="edit-btn" data-id="@item.id"><i class="fas fa-edit"></i></a>
+        <a title="Editar" href="/@item.id/editEventos" class="edit-btn" data-id="@item.id"><i class="fas fa-edit"></i></a>
     </td>
 
 </tr>

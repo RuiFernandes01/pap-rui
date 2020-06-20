@@ -62,6 +62,12 @@ namespace pap_rui
             );
 
             routes.MapRoute(
+                name: "editEventos",
+                url: "{id}/editEventos",
+                defaults: new { controller = "editEventos", action = "Index" }
+            );
+
+            routes.MapRoute(
                 name: "Page",
                 url: "page/{id}",
                 defaults: new { controller = "Page", action = "Index" }

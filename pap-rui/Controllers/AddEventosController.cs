@@ -23,8 +23,6 @@ namespace pap_rui.Controllers
             }
         }
 
-
-
         [HttpPost]
         public ActionResult adicionarEventos(Eventos eventoToAdd)
         {
@@ -35,7 +33,6 @@ namespace pap_rui.Controllers
 
             return RedirectToAction("Index", "dashboard");
         }
-
 
         public string getImage(HttpPostedFileBase file)
         {

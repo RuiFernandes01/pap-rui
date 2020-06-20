@@ -159,6 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AddEventosController.cs" />
     <Compile Include="Controllers\dashboardController.cs" />
+    <Compile Include="Controllers\editEventosController.cs" />
     <Compile Include="Controllers\Home\HomeController.cs" />
     <Compile Include="Controllers\Home\slideshowController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -254,6 +255,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="images\svg\" />
+    <Folder Include="Views\editEventos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -270,6 +272,7 @@
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Home\_slideshow.cshtml" />
     <Content Include="Views\Page\_eventoPage.cshtml" />
+    <Content Include="Views\dashboard\editEvento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
