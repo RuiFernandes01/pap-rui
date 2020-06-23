@@ -1,7 +1,7 @@
 ﻿@model eventos
 
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-lite.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-lite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-lite.min.js" type="text/javascript"></script>
 
 <div id="addeventos">
     <div class="container">
@@ -26,12 +26,12 @@
 
             <div class="form-group">
                 <span>Data de Inicio:</span>
-                <input type="date" class="form-control" id="datai-input" name="datainicio" title="DataInicioEvento" placeholder="Insira a data de inicio">
+                <input type="date" class="form-control" id="datai-input" name="datainicio" title="DataInicioEvento" placeholder="Insira a data de inicio" required>
             </div>
 
             <div class="form-group">
                 <span>Data de Fim:</span>
-                <input type="date" class="form-control" id="dataf-input" name="datafim" title="DataFimEvento" placeholder="Inisira a data de fim">
+                <input type="date" class="form-control" id="dataf-input" name="datafim" title="DataFimEvento" placeholder="Inisira a data de fim" required>
             </div>
 
             <div class="form-group">
@@ -44,12 +44,12 @@
             <div class="loc-group">
                 <div class="lat-group">
                     <span>Latitude:</span>
-                    <input type="text" class="form-control" id="latitude-input" name="latitude" title="LatitudeEvento" placeholder="Insira a latitude da localização do evento">
+                    <input type="text" class="form-control" id="latitude-input" name="latitude" title="LatitudeEvento" placeholder="Insira a latitude da localização do evento" pattern="^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?)$">
                 </div>
 
                 <div class="lon-group">
                     <span>Longitude:</span>
-                    <input type="text" class="form-control" id="longitude-input" name="longitude" title="LongitudeEvento" placeholder="Insira a longitude da localização do evento">
+                    <input type="text" class="form-control" id="longitude-input" name="longitude" title="LongitudeEvento" placeholder="Insira a longitude da localização do evento" pattern="\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$">
                 </div>
             </div>
 

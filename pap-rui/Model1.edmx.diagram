@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="06bc2a23a8e34ef6b991f0bac99300df" Name="Diagram1">
         <EntityTypeShape EntityType="iluminarteModel.eventos" Width="1.5" PointX="3" PointY="1.125" />
-        <EntityTypeShape EntityType="iluminarteModel.texto" Width="1.5" PointX="3" PointY="4.75" />
+        <EntityTypeShape EntityType="iluminarteModel.texto" Width="1.5" PointX="3" PointY="5" />
         <EntityTypeShape EntityType="iluminarteModel.Users" Width="1.5" PointX="0.75" PointY="3" />
         <EntityTypeShape EntityType="iluminarteModel.RedesSociais" Width="1.5" PointX="5.75" PointY="0.75" />
         <AssociationConnector Association="iluminarteModel.FK_eventos_Users" />

@@ -14,13 +14,13 @@ namespace pap_rui.Controllers
         public int quemSomosID = Convert.ToInt32(WebConfigurationManager.AppSettings["quemsomosID"]);
         public int academiaID = Convert.ToInt32(WebConfigurationManager.AppSettings["academiaID"]);
         public int cursosID = Convert.ToInt32(WebConfigurationManager.AppSettings["cursosID"]);
-        public int contactosID = Convert.ToInt32(WebConfigurationManager.AppSettings["contactosID"]);
+        
         public ActionResult Index()
         {
             ViewBag.quemSomosTxt = getQuemSomosTxt();
             ViewBag.academiatxt = getacademiatxt();
             ViewBag.cursostxt = getcursostxt();
-            ViewBag.contactostxt = getcontactostxt();
+            
             return View();
 
         }
@@ -44,10 +44,6 @@ namespace pap_rui.Controllers
             return cursos.descrição;
         }
 
-        public string getcontactostxt()
-        {
-            texto contactos = db.texto.Where(p => p.id == contactosID).FirstOrDefault();
-            return contactos.descrição;
-        }
+
     }
 }

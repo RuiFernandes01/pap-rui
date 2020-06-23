@@ -15,7 +15,8 @@ namespace pap_rui.Models
         public DateTime datainicio { get; set; }
         public DateTime datafim { get; set; }
         public string descricao { get; set; }
-        public string latlang { get; set; }
+        public string latitude { get; set; }
+        public string longitude { get; set; }
         public int modificadoPor { get; set; }
 
         public virtual Users Users { get; set; }

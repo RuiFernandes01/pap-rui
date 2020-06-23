@@ -14,7 +14,8 @@ namespace pap_rui.Methods
             newEvento.id = oldEvento.id;
             newEvento.titulo = oldEvento.titulo;
             newEvento.imagem = oldEvento.imagem;
-            newEvento.latlang = oldEvento.latlang;
+            newEvento.latitude = oldEvento.latitude;
+            newEvento.longitude = oldEvento.longitude;
             newEvento.modificadoPor = oldEvento.modificadoPor;
             newEvento.datafim = oldEvento.datafim;
             newEvento.datainicio = oldEvento.datainicio;
@@ -31,7 +32,9 @@ namespace pap_rui.Methods
             newEvento.id = oldEvento.id;
             newEvento.titulo = oldEvento.titulo;
             newEvento.imagem = oldEvento.imagem;
-            newEvento.latlang = oldEvento.latlang;
+            newEvento.latitude = oldEvento.latitude;
+            newEvento.longitude = oldEvento.longitude;
+
             newEvento.modificadoPor = oldEvento.modificadoPor;
             newEvento.datafim = oldEvento.datafim;
             newEvento.datainicio = oldEvento.datainicio;

@@ -24,6 +24,7 @@ namespace pap_rui.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult adicionarEventos(Eventos eventoToAdd)
         {
             eventoToAdd.imagem = getImage(eventoToAdd.imagemFile);

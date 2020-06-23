@@ -21,8 +21,9 @@ namespace pap_rui
         public System.DateTime datainicio { get; set; }
         public System.DateTime datafim { get; set; }
         public string descricao { get; set; }
-        public string latlang { get; set; }
+        public string latitude { get; set; }
         public int modificadoPor { get; set; }
+        public string longitude { get; set; }
     
         public virtual Users Users { get; set; }
     }

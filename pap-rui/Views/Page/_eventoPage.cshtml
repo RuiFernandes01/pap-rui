@@ -4,9 +4,37 @@
 
     <div class="container">
         <div class="evento-title">@Model.titulo</div>
-        <div class="evento-date">@Model.datainicio.ToShortDateString() até @Model.datafim.ToShortDateString()</div>
-        <img class="evento-img" alt="@Model.titulo" src="@Model.imagem" />
-        <div class="evento-subtitle">@Model.subtitulo</div>
-        <div class="evento-description">@Html.Raw(Model.descricao)</div>
+        <div class="date">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <div class="evento-date">@Model.datainicio.ToShortDateString() até @Model.datafim.ToShortDateString()</div>
+        </div>
+        <div class="d-flex">
+            <img class="evento-img" alt="@Model.titulo" src="@Model.imagem" />
+            <div class="ml-3">
+                <div class="evento-subtitle">@Model.subtitulo</div>
+                <div class="evento-description">@Html.Raw(Model.descricao)</div>
+            </div>
+        </div>
+        <div class="localização">
+            <span class="d-block mb-3">Localização:</span>
+            <div id="mapid"></div>
+        </div>
     </div>
 </div>
+
+@if (!String.IsNullOrEmpty(Model.latitude) && !String.IsNullOrEmpty(Model.longitude))
+{
+<script>
+    $(document).ready(function () {
+        var map = L.map('mapid').setView([@Model.latitude, @Model.longitude], 14);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([@Model.latitude, @Model.longitude]).addTo(map)
+            .bindPopup('@Model.titulo')
+            .openPopup();
+    })
+</script>
+}

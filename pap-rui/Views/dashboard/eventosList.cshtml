@@ -7,7 +7,6 @@
     <th>Data Inical</th>
     <th>Data Final</th>
     <th>Descrição do evento</th>
-    <th>Localização do evento</th>
 </tr>
 
 @foreach (eventos item in Model)
@@ -26,10 +25,7 @@
         <div>@item.datafim.ToShortDateString()</div>
     </td>
     <td>
-        <div>@item.descricao</div>
-    </td>
-    <td>
-        <div>@item.latlang</div>
+        <div class="description-table">@item.descricao</div>
     </td>
 
     <td>

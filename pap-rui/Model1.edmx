@@ -16,8 +16,9 @@
           <Property Name="datainicio" Type="datetime" Nullable="false" />
           <Property Name="datafim" Type="datetime" Nullable="false" />
           <Property Name="descricao" Type="nvarchar(max)" />
-          <Property Name="latlang" Type="nvarchar" MaxLength="20" />
+          <Property Name="latitude" Type="nvarchar" MaxLength="20" />
           <Property Name="modificadoPor" Type="int" Nullable="false" />
+          <Property Name="longitude" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'iluminarte.dbo.RedesSociais' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -117,8 +118,9 @@ warning 6002: The table/view 'iluminarte.dbo.RedesSociais' does not have a prima
           <Property Name="datainicio" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="datafim" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="latlang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="latitude" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="modificadoPor" Type="Int32" Nullable="false" />
+          <Property Name="longitude" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Users" Relationship="iluminarteModel.FK_eventos_Users" FromRole="eventos" ToRole="Users" />
         </EntityType>
         <EntityType Name="texto">
@@ -181,8 +183,9 @@ warning 6002: The table/view 'iluminarte.dbo.RedesSociais' does not have a prima
           <EntitySetMapping Name="eventos">
             <EntityTypeMapping TypeName="iluminarteModel.eventos">
               <MappingFragment StoreEntitySet="eventos">
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
                 <ScalarProperty Name="modificadoPor" ColumnName="modificadoPor" />
-                <ScalarProperty Name="latlang" ColumnName="latlang" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
                 <ScalarProperty Name="descricao" ColumnName="descricao" />
                 <ScalarProperty Name="datafim" ColumnName="datafim" />
                 <ScalarProperty Name="datainicio" ColumnName="datainicio" />

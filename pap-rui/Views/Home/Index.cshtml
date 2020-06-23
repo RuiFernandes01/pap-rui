@@ -21,9 +21,6 @@
         <div class="main-descricao">@Html.Raw(ViewBag.cursostxt)</div>
     </div>
 
-    <div id="Eventos">
-        <div class="main-title">Eventos</div>
-    </div>
 
 
     <div id="Localização">
@@ -32,4 +29,18 @@
     </div>
 </div>
 <div id="mapid"></div>
+
+<script>
+    $(document).ready(function () {
+        var map = L.map('mapid').setView([37.138957, -8.021973], 14);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([37.138957, -8.021973]).addTo(map)
+            .bindPopup('Academia Iluminarte')
+            .openPopup();
+    })
+</script>
 
