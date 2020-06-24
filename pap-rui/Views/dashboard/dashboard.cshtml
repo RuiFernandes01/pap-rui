@@ -102,46 +102,41 @@
 
             </form>
         </div>
-        @foreach (eventos item in Model)
-        {
-
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Apagar</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            Tem a certeza que quer apagar este evento ?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                            <button type="submit" class="btn btn-primary delete-btn" data-id="@item.id">Sim</button>
-                        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Apagar</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Tem a certeza que quer apagar este evento ?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                        <button type="submit" class="btn btn-primary confirm-btn">Sim</button>
                     </div>
                 </div>
             </div>
-        }
+        </div>
     </div>
-        
+
 
 
 </div>
 
-
-
 <script>
+    var idToDelete = 0;
     $(document).ready(function () {
-        $('.delete-btn').click(function () {
+        $('.confirm-btn').click(function () {
             var id = $(this).data('id');
 
             $.ajax({
                 type: "POST",
                 url: "@Url.Action("delete","dashboard")",
-                data: { "id": id },
+                data: { "id": idToDelete },
                 success: function (response) {
                     $('.list-section').html(response);
                 },
@@ -152,6 +147,12 @@
 
                 }
             })
+
+            $('#exampleModal').modal('hide')
+        })
+
+        $('.delete-btn').click(function () {
+            idToDelete = $(this).data('id');
         })
     })
 
