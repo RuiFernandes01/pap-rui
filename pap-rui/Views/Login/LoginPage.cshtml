@@ -1,18 +1,13 @@
 ﻿<div class="container" id="login-page">
-    @using (Html.BeginForm("checkLogin", "Login", FormMethod.Post))
-    {
-        if (ViewBag.loginFailed != null)
-        {
-            <div>@ViewBag.loginFailed</div>
-        }
 
-        <div class="form-title">Backoffice</div>
+
+        <div class="form-title">Página de Login</div>
 
         <div class="user-group">
             <div class="user">
                 <span>Utilizador:</span>
             </div>
-            <input type="text" class="form-control" id="email-input" name="emailValue" title="Insira o nome de Utilizador" placeholder="Insira o nome de Utilizador">
+            <input type="text" class="form-control" id="email-input" name="emailValue" title="Insira o email" placeholder="Insira o email">
         </div>
         <div class="pass-group">
             <div class="pass">

@@ -2,11 +2,12 @@
 }
 
 .navbar{width:100%;border-bottom:1px solid #CCC;display: block;}
-.navbar .login-btn{color:#f90035;text-transform:uppercase;font-family:'Roboto';}
+.navbar .login-btn{color:#f90035;text-transform:uppercase;font-family:'Roboto'; padding-left:15px;}
 .navbar .logout-btn{color:#f90035;text-transform:uppercase;font-family:'Roboto';}
 .navbar .logo-img{}
 .navbar .logo-img img{height:80px;}
 .navbar .nav-links{color:#f90035;text-transform:uppercase; font-family:'Roboto';}
+.navbar .hidden-backoffice{visibility:hidden;}
 li {
     list-style-type: none;
     float: left;
@@ -55,9 +56,14 @@ li a:hover{
 .footer-title{color:#3a394c;font-family:'Roboto';margin-bottom: 20px;}
 .footer-item-title{font-family: "Montserrat",sans-serif; font-size: 20px; padding-left:10px;}
 .main-descricao{font-family: "Montserrat",sans-serif; font-size:20px; padding-bottom:50px;}
+
+/*region signup*/
+.form-title{font-size:30px;line-height:34px;font-family:'Roboto';color:#f90035;margin-top:30px;text-align:center;margin-bottom:15px;}
+
+/*endregion*/
+
+
 /*region login*/
-
-
 .user-group {width: 400px; display: block; margin-right: auto; margin-left: auto; padding-top: 50px;}
 .pass-group{width:400px;display: block; margin-right: auto; margin-left: auto; padding-top:30px;}
 .button-group{width:300px; display: block; margin-right: auto; margin-left: auto; padding-top:30px}
@@ -102,7 +108,7 @@ li a:hover{
 .button:hover{opacity:0.8;transform:scale(1.05);}
 /*endregion*/
 
-
+/*region EventoPage*/
 #login-page{min-height:75vh;}
 #evento-page{}
 #evento-page .evento-title{font-size:30px;line-height:34px;font-family:'Roboto';color:#f90035;margin-top:30px;text-align:center;margin-bottom:15px;}
@@ -112,6 +118,8 @@ li a:hover{
 #evento-page .evento-date{margin-left:15px;font-family:'Roboto';color:#4c4c4c;}
 #evento-page .date{display:flex; font-size:20px; padding-bottom:15px;justify-content:center;align-items:center;}
 #evento-page .localização{font-size:25px;text-align:center;font-family:'Roboto';color:#f90035;margin-top:30px;margin-bottom:15px;}
+
+/*endregion*/
 
 .dropbtn {
     background-color: #f90035;

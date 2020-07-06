@@ -172,9 +172,11 @@
     <Compile Include="Controllers\Home\HomeController.cs" />
     <Compile Include="Controllers\Home\slideshowController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LoginPageController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\Shared\FooterController.cs" />
     <Compile Include="Controllers\Shared\NavbarController.cs" />
+    <Compile Include="Controllers\SignupController.cs" />
     <Compile Include="eventos.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -281,6 +283,8 @@
     <Content Include="Views\Home\_slideshow.cshtml" />
     <Content Include="Views\Page\_eventoPage.cshtml" />
     <Content Include="Views\dashboard\editEvento.cshtml" />
+    <Content Include="Views\Signup\signup.cshtml" />
+    <Content Include="Views\Login\LoginPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

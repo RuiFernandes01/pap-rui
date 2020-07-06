@@ -17,11 +17,24 @@
                 <li class="nav-item"><a href="#Contactos" data-target="Contactos" class="header-link">Contactos</a></li>
                 <li class="nav-item"><a href="#Localização" data-target="Localização" class="header-link">Localização</a></li>
             </ul>
+
+            <a class="login-btn" href="/signup" title="Registar">
+                <i class="fas fa-user-plus"></i>
+                <span>Registar</span>
+            </a>
+
+            <a class="login-btn" href="/LoginPage" title="Login">
+                <i class="fas fa-sign-in-alt"></i>
+                <span>Login</span>
+            </a>
+
+            <div class="hidden-backoffice">
+
             @if (Session["login"] == null)
             {
                 <a class="login-btn" href="/login" title="Login">
                     <i class="fas fa-sign-in-alt"></i>
-                    <span>Login</span>
+                    <span>Backoffice</span>
                 </a>
 
             }
@@ -32,6 +45,7 @@
                     <span>Logout</span>
                 </a>
             }
+                </div>
         </div>
 
     </div>
