@@ -7,7 +7,7 @@
 .navbar .logo-img{}
 .navbar .logo-img img{height:80px;}
 .navbar .nav-links{color:#f90035;text-transform:uppercase; font-family:'Roboto';}
-.navbar .hidden-backoffice{visibility:hidden;}
+
 li {
     list-style-type: none;
     float: left;
@@ -64,8 +64,9 @@ li a:hover{
 
 
 /*region login*/
-.user-group {width: 400px; display: block; margin-right: auto; margin-left: auto; padding-top: 50px;}
+.user-group {width: 400px; display: block; margin-right: auto; margin-left: auto; padding-top: 30px;}
 .pass-group{width:400px;display: block; margin-right: auto; margin-left: auto; padding-top:30px;}
+.name-group{width:400px;display: block; margin-right: auto; margin-left: auto; padding-top:30px;}
 .button-group{width:300px; display: block; margin-right: auto; margin-left: auto; padding-top:30px}
 .user{font-family:"roboto";color:#f90035; padding-bottom:10px;}
 .pass{font-family:"roboto";color:#f90035;padding-bottom:10px;}
