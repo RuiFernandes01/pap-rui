@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Ajax.Utilities;
+using pap_rui.Models;
 
 namespace pap_rui.Controllers
 {
@@ -13,25 +16,85 @@ namespace pap_rui.Controllers
         // GET: LoginPage
         public ActionResult Index()
         {
-            return View("/Views/Login/LoginPage.cshtml");
+            return View();
         }
 
-        public ActionResult checkLogin(string emailValue, string passwordValue)
+        public ActionResult Register()
         {
-            var result = db.Clientes.Where(x => x.email == emailValue && x.password == passwordValue);
+            return View();
+        }
 
-
-            if (result.Count() > 0)
+        [HttpPost]
+        public ActionResult Register(RegisterModel account)
+        {
+            var accountToAdd = ConvertModelToRegisto(account);
+            if (ModelState.IsValid)
             {
-                Session["login"] = "login";
-                Session["userID"] = result.FirstOrDefault().id;
-                return RedirectToAction("Index", "dashboard");
+                using (iluminarteEntities db = new iluminarteEntities())
+                {
+                    db.Registo.Add(accountToAdd);
+                    db.SaveChanges();
+                }
+                ModelState.Clear();
+                ViewBag.Message = account.FirstName + "" + account.LastName + "Registado com sucesso";
+
+                
+            }
+
+            return View();
+
+            
+        }
+
+        //Login
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+
+        public ActionResult Login(RegisterModel user)
+        {
+            using (iluminarteEntities db = new iluminarteEntities())
+            {
+                var usr = db.Registo.Single(u => u.Email == user.Email && u.Password == user.Password);
+                if (usr != null)
+                {
+                    Session["id"] = usr.id.ToString();
+                    Session["Email"] = usr.Email.ToString();
+                    return RedirectToAction("LoggedIn");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Email ou passoword não correspondem");
+                }
+            }
+            return View();
+        }
+
+        public ActionResult LoggedIn()
+        {
+            if (Session["id"]!= null)
+            {
+                return View();
             }
             else
             {
-                ViewBag.loginFailed = "Dados incorrectos";
-                return View("/Views/Login/login.cshtml");
+                return RedirectToAction("Login");
             }
+        }
+
+        public Registo ConvertModelToRegisto(RegisterModel oldRegisto)
+        {
+            Registo newRegisto = new Registo();
+
+            newRegisto.Email = oldRegisto.Email;
+            newRegisto.Password = oldRegisto.Password;
+            newRegisto.ConfirmPassword = oldRegisto.ConfirmPassword;
+            newRegisto.FirstName = oldRegisto.FirstName;
+            newRegisto.LastName = oldRegisto.LastName;
+
+            return newRegisto;
         }
     }
 }

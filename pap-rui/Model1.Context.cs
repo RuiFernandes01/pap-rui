@@ -25,7 +25,9 @@ namespace pap_rui
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Clientes> Clientes { get; set; }
         public virtual DbSet<eventos> eventos { get; set; }
+        public virtual DbSet<Registo> Registo { get; set; }
         public virtual DbSet<texto> texto { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<RedesSociais> RedesSociais { get; set; }

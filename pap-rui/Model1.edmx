@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="iluminarteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="eventos">
           <Key>
             <PropertyRef Name="id" />
@@ -28,6 +36,17 @@ warning 6002: The table/view 'iluminarte.dbo.RedesSociais' does not have a prima
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="titulo" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Registo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="LastName" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ConfirmPassword" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="texto">
           <Key>
@@ -71,7 +90,9 @@ warning 6002: The table/view 'iluminarte.dbo.RedesSociais' does not have a prima
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="iluminarteModelStoreContainer">
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="eventos" EntityType="Self.eventos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Registo" EntityType="Self.Registo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="texto" EntityType="Self.texto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RedesSociais" EntityType="Self.RedesSociais" store:Type="Tables" store:Schema="dbo">
@@ -94,7 +115,9 @@ warning 6002: The table/view 'iluminarte.dbo.RedesSociais' does not have a prima
     <edmx:ConceptualModels>
       <Schema Namespace="iluminarteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="iluminarteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clientes" EntityType="iluminarteModel.Clientes" />
           <EntitySet Name="eventos" EntityType="iluminarteModel.eventos" />
+          <EntitySet Name="Registo" EntityType="iluminarteModel.Registo" />
           <EntitySet Name="texto" EntityType="iluminarteModel.texto" />
           <EntitySet Name="Users" EntityType="iluminarteModel.Users" />
           <EntitySet Name="RedesSociais" EntityType="iluminarteModel.RedesSociais" />
@@ -107,6 +130,14 @@ warning 6002: The table/view 'iluminarte.dbo.RedesSociais' does not have a prima
             <End Role="texto" EntitySet="texto" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="eventos">
           <Key>
             <PropertyRef Name="id" />
@@ -122,6 +153,17 @@ warning 6002: The table/view 'iluminarte.dbo.RedesSociais' does not have a prima
           <Property Name="modificadoPor" Type="Int32" Nullable="false" />
           <Property Name="longitude" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Users" Relationship="iluminarteModel.FK_eventos_Users" FromRole="eventos" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Registo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConfirmPassword" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="texto">
           <Key>
@@ -180,6 +222,15 @@ warning 6002: The table/view 'iluminarte.dbo.RedesSociais' does not have a prima
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="iluminarteModelStoreContainer" CdmEntityContainer="iluminarteEntities">
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="iluminarteModel.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="eventos">
             <EntityTypeMapping TypeName="iluminarteModel.eventos">
               <MappingFragment StoreEntitySet="eventos">
@@ -192,6 +243,18 @@ warning 6002: The table/view 'iluminarte.dbo.RedesSociais' does not have a prima
                 <ScalarProperty Name="imagem" ColumnName="imagem" />
                 <ScalarProperty Name="subtitulo" ColumnName="subtitulo" />
                 <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Registo">
+            <EntityTypeMapping TypeName="iluminarteModel.Registo">
+              <MappingFragment StoreEntitySet="Registo">
+                <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

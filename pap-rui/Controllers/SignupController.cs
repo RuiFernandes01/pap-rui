@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Registration.Models;
 
 namespace pap_rui.Controllers
 {
@@ -14,16 +13,16 @@ namespace pap_rui.Controllers
             return View("/Views/Signup/signup.cshtml");
         }
 
-        public ActionResult Index(registo obj)
+        public ActionResult Registar(Registo obj)
 
         {
             if (ModelState.IsValid)
             {
-                RegMVCEntities db = new RegMVCEntities();
-                db.tblRegistrations.Add(obj);
+                iluminarteEntities db = new iluminarteEntities();
+                db.Registo.Add(obj);
                 db.SaveChanges();
             }
-            return View(obj);
+            return View("/Views/Login/LoginPage.cshtml");
         }
     }
 }
