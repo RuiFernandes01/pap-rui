@@ -16,7 +16,7 @@ namespace pap_rui.Controllers
         // GET: LoginPage
         public ActionResult Index()
         {
-            return View();
+            return View("/Views/Login/LoginPage.cshtml");
         }
 
         public ActionResult Register()
@@ -76,7 +76,7 @@ namespace pap_rui.Controllers
         {
             if (Session["id"]!= null)
             {
-                return View();
+                return View("/Views/Home/Index.cshtml");
             }
             else
             {

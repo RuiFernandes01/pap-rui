@@ -1,21 +1,25 @@
 ﻿<div class="container" id="login-page">
+    @using (Html.BeginForm("Login", "LoginPage", FormMethod.Post))
+    {
 
 
-    <div class="form-title">Página de Login</div>
+
+
+<div class="form-title">Página de Login</div>
 
 
 
     <div class="user-group">
         <div class="user">
-            <span>Utilizador:</span>
+            <span>Email:</span>
         </div>
-        <input type="text" class="form-control" id="email-input" name="emailValue" title="Insira o email" placeholder="Insira o email">
+        <input type="text" class="form-control" id="Email" name="Email" title="Insira o email" placeholder="Insira o email">
     </div>
     <div class="pass-group">
         <div class="pass">
             <span>Password:</span>
         </div>
-        <input type="password" class="form-control" id="password-input" name="passwordValue" title="Insira a sua Password" placeholder="Insira a sua Password" />
+        <input type="password" class="form-control" id="Password" name="Password" title="Insira a sua Password" placeholder="Insira a sua Password" />
 
     </div>
 
@@ -26,7 +30,7 @@
     </div>
 
 
+        }
 
-
-    }
+    
 </div>
