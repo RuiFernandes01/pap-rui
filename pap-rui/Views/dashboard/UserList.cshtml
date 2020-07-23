@@ -1,0 +1,18 @@
+﻿@model List<eventos>
+
+<tr>
+    <th>Utilizador</th>
+</tr>
+
+@foreach (eventos item in Model)
+{
+    <tr>
+        <td>
+            <div>@item.titulo</div>
+        </td>
+        <td>
+            <a class="delete-btn" data-id="@item.id" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash-alt"></i></a>
+        </td>
+
+    </tr>
+}

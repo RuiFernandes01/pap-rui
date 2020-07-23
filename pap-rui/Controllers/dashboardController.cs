@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pap_rui.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +13,6 @@ namespace pap_rui.Controllers
         private iluminarteEntities db = new iluminarteEntities();
         public int quemSomosID = Convert.ToInt32(WebConfigurationManager.AppSettings["quemsomosID"]);
         public int academiaID = Convert.ToInt32(WebConfigurationManager.AppSettings["academiaID"]);
-        public int cursosID = Convert.ToInt32(WebConfigurationManager.AppSettings["cursosID"]);
         public int contactosID = Convert.ToInt32(WebConfigurationManager.AppSettings["contactosID"]);
         public ActionResult Index()
         {
@@ -24,14 +24,16 @@ namespace pap_rui.Controllers
                 texto academia = db.texto.Where(p => p.id == academiaID).FirstOrDefault();
                 ViewBag.academiatxt = academia.descrição;
 
-                texto cursos = db.texto.Where(p => p.id == cursosID).FirstOrDefault();
-                ViewBag.cursostxt = cursos.descrição;
 
                 texto contactos = db.texto.Where(p => p.id == contactosID).FirstOrDefault();
                 ViewBag.contactos = contactos.descrição;
 
-                List<eventos> eventosList = getEventosList();
-                return View("/Views/dashboard/dashboard.cshtml", eventosList);
+                dashboardModel model = new dashboardModel();
+                model.eventosList = getEventosList();
+                model.cursosList = getCursosList();
+                return View("/Views/dashboard/dashboard.cshtml", model);
+
+                
             }
             else
             {
@@ -59,16 +61,6 @@ namespace pap_rui.Controllers
             return RedirectToAction("Index", "dashboard");
         }
 
-        [HttpPost]
-        [ValidateInput(false)]
-        public ActionResult savecursos(string cursostxt)
-        {
-            texto cursos = db.texto.Where(p => p.id == cursosID).FirstOrDefault();
-            cursos.descrição = cursostxt;
-            db.SaveChanges();
-            return RedirectToAction("Index", "dashboard");
-        }
-
 
         [HttpPost]
         [ValidateInput(false)]
@@ -87,6 +79,13 @@ namespace pap_rui.Controllers
             return listaEventos;
         }
 
+        public List<Cursos> getCursosList()
+        {
+            List<Cursos> listaCursos = db.Cursos.ToList();
+
+            return listaCursos;
+        }
+
         [HttpPost]
         public ActionResult delete(int id)
         {
@@ -98,5 +97,18 @@ namespace pap_rui.Controllers
 
             return PartialView("/Views/dashboard/eventosList.cshtml", eventosList);
         }
+
+        [HttpPost]
+        public ActionResult deleteCurso(int id)
+        {
+            Cursos cursoToRemove = db.Cursos.Where(x => x.id == id).FirstOrDefault();
+            db.Cursos.Remove(cursoToRemove);
+            db.SaveChanges();
+
+            List<Cursos> cursoList = getCursosList();
+
+            return PartialView("/Views/dashboard/CursosList.cshtml", cursoList);
+        }
+
     }
 }

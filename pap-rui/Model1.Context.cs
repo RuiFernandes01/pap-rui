@@ -26,6 +26,7 @@ namespace pap_rui
         }
     
         public virtual DbSet<Clientes> Clientes { get; set; }
+        public virtual DbSet<Cursos> Cursos { get; set; }
         public virtual DbSet<eventos> eventos { get; set; }
         public virtual DbSet<Registo> Registo { get; set; }
         public virtual DbSet<texto> texto { get; set; }

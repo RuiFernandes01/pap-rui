@@ -4,13 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="06bc2a23a8e34ef6b991f0bac99300df" Name="Diagram1">
+      <Diagram DiagramId="06bc2a23a8e34ef6b991f0bac99300df" Name="Diagram1" ZoomLevel="72">
         <EntityTypeShape EntityType="iluminarteModel.Clientes" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="iluminarteModel.Cursos" Width="1.5" PointX="5.75" PointY="3.75" />
         <EntityTypeShape EntityType="iluminarteModel.eventos" Width="1.5" PointX="3" PointY="3.875" />
-        <EntityTypeShape EntityType="iluminarteModel.Registo" Width="1.5" PointX="5.75" PointY="3.75" />
+        <EntityTypeShape EntityType="iluminarteModel.Registo" Width="1.5" PointX="5.75" PointY="6.75" />
         <EntityTypeShape EntityType="iluminarteModel.texto" Width="1.5" PointX="3" PointY="1.125" />
         <EntityTypeShape EntityType="iluminarteModel.Users" Width="1.5" PointX="0.75" PointY="3" />
-        <EntityTypeShape EntityType="iluminarteModel.RedesSociais" Width="1.5" PointX="5.75" PointY="6.75" />
+        <EntityTypeShape EntityType="iluminarteModel.RedesSociais" Width="1.5" PointX="7.75" PointY="0.75" />
         <AssociationConnector Association="iluminarteModel.FK_eventos_Users" />
         <AssociationConnector Association="iluminarteModel.FK_texto_Users" />
       </Diagram>

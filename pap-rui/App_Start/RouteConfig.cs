@@ -62,15 +62,33 @@ namespace pap_rui
             );
 
             routes.MapRoute(
+                name: "addCursos",
+                url: "AddCursos",
+                defaults: new { controller = "addCursos", action = "Index" }
+            );
+
+            routes.MapRoute(
                 name: "editEventos",
                 url: "{id}/editEventos",
                 defaults: new { controller = "editEventos", action = "Index" }
             );
 
             routes.MapRoute(
+                name: "editCursos",
+                url: "{id}/editCursos",
+                defaults: new { controller = "editCursos", action = "Index" }
+            );
+
+            routes.MapRoute(
                 name: "Page",
                 url: "page/{id}",
                 defaults: new { controller = "Page", action = "Index" }
+            );
+
+            routes.MapRoute(
+                name: "Curso",
+                url: "curso/{id}",
+                defaults: new { controller = "Page", action = "Curso" }
             );
 
             routes.MapRoute(

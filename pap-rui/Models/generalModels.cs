@@ -18,7 +18,17 @@ namespace pap_rui.Models
         public string latitude { get; set; }
         public string longitude { get; set; }
         public int modificadoPor { get; set; }
-
         public virtual Users Users { get; set; }
+    }
+
+    public class dashboardModel
+    {
+        public dashboardModel()
+        {
+            this.eventosList = new List<eventos>();
+            this.cursosList = new List<Cursos>();
+        }
+        public List<eventos> eventosList { get; set; }
+        public List<Cursos> cursosList { get; set; }
     }
 }

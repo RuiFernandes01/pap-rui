@@ -16,5 +16,12 @@ namespace pap_rui.Controllers
 
             return View("/Views/Page/_eventoPage.cshtml", evento);
         }
+
+        public ActionResult Curso(int id)
+        {
+            var evento = generalMethods.ConvertCursoToModel(db.Cursos.Where(x => x.id == id).FirstOrDefault());
+
+            return View("/Views/Page/CursosPage.cshtml", evento);
+        }
     }
 }

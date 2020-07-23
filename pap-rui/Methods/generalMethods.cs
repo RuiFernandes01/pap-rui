@@ -44,5 +44,32 @@ namespace pap_rui.Methods
 
             return newEvento;
         }
+
+        public static Cursos ConvertCursoToDb(CursosModel oldCurso)
+        {
+            Cursos newCurso = new Cursos();
+            newCurso.id = oldCurso.id;
+            newCurso.titulo = oldCurso.titulo;
+            newCurso.imagem = oldCurso.imagem;
+            newCurso.duracao = oldCurso.duracao;
+            newCurso.descricao = oldCurso.descricao;
+            newCurso.subtitulo = oldCurso.subtitulo;
+
+            return newCurso;
+        }
+
+        public static CursosModel ConvertCursoToModel(Cursos oldCurso)
+        {
+            CursosModel newCurso = new CursosModel();
+            newCurso.id = oldCurso.id;
+            newCurso.titulo = oldCurso.titulo;
+            newCurso.imagem = oldCurso.imagem;
+
+            newCurso.descricao = oldCurso.descricao;
+            newCurso.duracao = oldCurso.duracao;
+            newCurso.subtitulo = oldCurso.subtitulo;
+
+            return newCurso;
+        }
     }
 }

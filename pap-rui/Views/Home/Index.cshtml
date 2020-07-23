@@ -15,14 +15,16 @@
         <div class="main-descricao">@Html.Raw(ViewBag.academiatxt)</div>
     </div>
 
-
-    <div id="Cursos">
-        <div class="main-title">Cursos</div>
-        <div class="main-descricao">@Html.Raw(ViewBag.cursostxt)</div>
     </div>
 
+    <div class="Cursos">
+        <div id="cursos">
+            <div class="main-title">Cursos</div>
+            @Html.Action("CursosSlideshow", "Cursos")
+        </div>
+</div>
 
-
+    <div class="container">
     <div id="Localização">
         <div class="main-title">Localização</div>
         <div class="main-descricao"></div>

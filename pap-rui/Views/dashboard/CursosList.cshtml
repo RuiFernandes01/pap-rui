@@ -1,0 +1,36 @@
+﻿@model List<Cursos>
+
+<tr>
+    <th>Titulo</th>
+    <th>Subtitulo</th>
+
+    <th>Duração</th>
+    <th>Descrição do Curso</th>
+</tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            <div>@item.titulo</div>
+        </td>
+        <td>
+            <div>@item.subtitulo</div>
+        </td>
+        <td>
+            <div>@item.duracao</div>
+        </td>
+        <td>
+            <div class="description-table">@item.descricao</div>
+        </td>
+
+        <td>
+            <a class="delete-curso-btn" data-id="@item.id" data-toggle="modal" data-target="#confirmCursoModal"><i class="fas fa-trash-alt"></i></a>
+        </td>
+        <td>
+            <a title="Editar" href="/@item.id/editCursos" class="edit-btn" data-id="@item.id"><i class="fas fa-edit"></i></a>
+        </td>
+
+    </tr>
+}
+

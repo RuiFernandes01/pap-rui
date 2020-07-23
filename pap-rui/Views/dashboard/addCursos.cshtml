@@ -1,0 +1,47 @@
+﻿@model Cursos
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-lite.min.js" type="text/javascript"></script>
+
+<div id="addCursos">
+    <div class="container">
+        @using (Html.BeginForm("AdicionarCursos", "addCursos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-group">
+
+                <span>Titulo:</span>
+                <input type="text" class="form-control" id="titulo-input" name="titulo" title="TituloEvento" placeholder="Insira o titulo do curso">
+
+            </div>
+
+            <div class="form-group">
+                <span>Subtitulo:</span>
+                <input type="text" class="form-control" id="subtitulo-input" name="subtitulo" title="SubtituloEvento" placeholder="Adicione um subtitulo">
+            </div>
+
+            <div class="form-group">
+                <span>imagem:</span>
+                <input type="file" class="form-control" id="imagem-input" name="imagemFile" value="browse" title="ImagemEvento" placeholder="Adicione uma imagem">
+            </div>
+
+            <div class="form-group">
+                <span>Duração do Curso:</span>
+                <input type="text" class="form-control" id="duracao-input" name="duracao" title="DuraçãoCurso" placeholder="Insira a duração do Curso" required>
+            </div>
+
+            <div class="form-group">
+                <span>Descrição:</span>
+                <div class="summernote">
+                    <textarea class="textarea" id="descricao-txt" name="descricao" placeholder="Insira a descrição do evento"></textarea>
+                </div>
+            </div>
+
+            <button class="button" type="submit">Adicionar Curso</button>
+
+        }
+    </div>
+</div>
+
+<script>
+    $('#descricao-txt').summernote();
+</script>

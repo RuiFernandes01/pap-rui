@@ -1,0 +1,19 @@
+﻿@model pap_rui.Models.CursosModel
+
+<div id="evento-page">
+
+    <div class="container">
+        <div class="evento-title">@Model.titulo</div>
+        <div class="date">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <div class="evento-date">@Model.duracao</div>
+        </div>
+        <div class="d-flex">
+            <img class="evento-img" alt="@Model.titulo" src="@Model.imagem" />
+            <div class="ml-3">
+                <div class="evento-subtitle">@Model.subtitulo</div>
+                <div class="evento-description">@Html.Raw(Model.descricao)</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -13,6 +13,17 @@
           <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
+        <EntityType Name="Cursos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titulo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="subtitulo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="imagem" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="duracao" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="descricao" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="eventos">
           <Key>
             <PropertyRef Name="id" />
@@ -91,6 +102,7 @@ warning 6002: The table/view 'iluminarte.dbo.RedesSociais' does not have a prima
         </Association>
         <EntityContainer Name="iluminarteModelStoreContainer">
           <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cursos" EntityType="Self.Cursos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="eventos" EntityType="Self.eventos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Registo" EntityType="Self.Registo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="texto" EntityType="Self.texto" Schema="dbo" store:Type="Tables" />
@@ -116,6 +128,7 @@ warning 6002: The table/view 'iluminarte.dbo.RedesSociais' does not have a prima
       <Schema Namespace="iluminarteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="iluminarteEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Clientes" EntityType="iluminarteModel.Clientes" />
+          <EntitySet Name="Cursos" EntityType="iluminarteModel.Cursos" />
           <EntitySet Name="eventos" EntityType="iluminarteModel.eventos" />
           <EntitySet Name="Registo" EntityType="iluminarteModel.Registo" />
           <EntitySet Name="texto" EntityType="iluminarteModel.texto" />
@@ -137,6 +150,17 @@ warning 6002: The table/view 'iluminarte.dbo.RedesSociais' does not have a prima
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Cursos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titulo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="subtitulo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="imagem" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="duracao" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="descricao" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="eventos">
           <Key>
@@ -227,6 +251,18 @@ warning 6002: The table/view 'iluminarte.dbo.RedesSociais' does not have a prima
               <MappingFragment StoreEntitySet="Clientes">
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cursos">
+            <EntityTypeMapping TypeName="iluminarteModel.Cursos">
+              <MappingFragment StoreEntitySet="Cursos">
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="duracao" ColumnName="duracao" />
+                <ScalarProperty Name="imagem" ColumnName="imagem" />
+                <ScalarProperty Name="subtitulo" ColumnName="subtitulo" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

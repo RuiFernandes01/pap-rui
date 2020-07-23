@@ -1,4 +1,4 @@
-﻿@model List<eventos>
+﻿@model  pap_rui.Models.dashboardModel
 
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-lite.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-lite.min.js"></script>
@@ -10,7 +10,7 @@
             <div class="table">
                 <table class="tabela list-section">
 
-                    @Html.Partial("/Views/dashboard/eventosList.cshtml", Model)
+                    @Html.Partial("/Views/dashboard/eventosList.cshtml", Model.eventosList)
 
 
                 </table>
@@ -19,6 +19,24 @@
             <a href="/AddEventos" title="Adicionar Eventos" class="add-events-btn">
                 <i class="fas fa-star"></i>
                 <span>Adicionar Eventos</span>
+            </a>
+
+        </div>
+
+        <div class="half">
+            <div class="title">Cursos</div>
+            <div class="table">
+                <table class="tabela list-section">
+
+                    @Html.Partial("/Views/dashboard/cursosList.cshtml", Model.cursosList)
+
+
+                </table>
+            </div>
+
+            <a href="/addCursos" title="Adicionar Cursos" class="add-events-btn">
+                <i class="fas fa-star"></i>
+                <span>Adicionar Cursos</span>
             </a>
 
         </div>
@@ -87,31 +105,51 @@
 
 
 
-        </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Apagar</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Tem a certeza que quer apagar este evento ?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="reset" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                        <button type="submit" class="btn btn-primary confirm-btn">Sim</button>
-                    </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Apagar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Tem a certeza que quer apagar este item ?
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-primary confirm-btn">Sim</button>
                 </div>
             </div>
         </div>
     </div>
 
-
-
+    <div class="modal fade" id="confirmCursoModal" tabindex="-1" role="dialog" aria-labelledby="confirmCursoLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmCursoLabel">Apagar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Tem a certeza que quer apagar este item ?
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-primary confirm-curso-btn">Sim</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
+
 
 <script>
     var idToDelete = 0;
@@ -138,6 +176,31 @@
         })
 
         $('.delete-btn').click(function () {
+            idToDelete = $(this).data('id');
+        })
+
+        $('.confirm-curso-btn').click(function () {
+            var id = $(this).data('id');
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("deleteCurso", "dashboard")",
+                data: { "id": idToDelete },
+                success: function (response) {
+                    $('.list-section').html(response);
+                },
+                failure: function (response) {
+
+                },
+                error: function (response) {
+
+                }
+            })
+
+            $('#exampleModal').modal('hide')
+        })
+
+        $('.delete-curso-btn').click(function () {
             idToDelete = $(this).data('id');
         })
     })
