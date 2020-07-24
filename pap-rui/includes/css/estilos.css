@@ -35,6 +35,7 @@ li a:hover{
 .slide-subtitle{color:#e6e6e6; font-size:35px; padding-left:115px;font-family:"roboto";}
 .know-more-btn{background:#f90035;width:205px;height:50px;color:#FFF !important;border-radius:20px;margin-left:115px;text-transform:uppercase;display:flex;align-items:center;justify-content:center;font-family:"roboto";margin-top:30px;transition:transform 0.3s ease;}
 .know-more-btn:hover{transform:scale(1.05);}
+
 /*#endregion*/
 /*Index*/
 .coluna-evento {

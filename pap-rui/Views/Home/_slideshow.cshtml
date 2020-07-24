@@ -1,14 +1,15 @@
 ﻿@model List<eventos>
 
-<div class="owl-carousel">
-    @foreach (var item in Model)
-    {
-        <div class="w-100 slide item position-relative" style="background-image: url(@item.imagem)">
-            <div class="overlay">
-                <div class="slide-title">@item.titulo</div>
-                <div class="slide-subtitle">@item.subtitulo</div>
-                <a href="/page/@item.id" title="@item.titulo" class="know-more-btn">Saiba Mais</a>
+    <div class="owl-carousel">
+        @foreach (var item in Model)
+        {
+
+            <div class="w-100 slide item position-relative" style="background-image: url(@item.imagem)">
+                <div class="overlay">
+                    <div class="slide-title">@item.titulo</div>
+                    <div class="slide-subtitle">@item.subtitulo</div>
+                    <a href="/page/@item.id" title="@item.titulo" class="know-more-btn">Saiba Mais</a>
+                </div>
             </div>
-        </div>
-    }
-</div>
+        }
+    </div>
