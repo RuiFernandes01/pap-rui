@@ -41,11 +41,11 @@ namespace pap_rui.Controllers
             }
             if (eventoToEdit.subtitulo != eventDB.subtitulo)
             {
-                eventDB.titulo = eventoToEdit.titulo;
+                eventDB.subtitulo = eventoToEdit.subtitulo;
             }
             if (eventoToEdit.descricao != eventDB.descricao)
             {
-                eventDB.titulo = eventoToEdit.titulo;
+                eventDB.descricao = eventoToEdit.descricao;
             }
             if (eventoToEdit.datainicio != eventDB.datainicio)
             {

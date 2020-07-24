@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pap_rui.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -33,26 +34,30 @@ namespace pap_rui.Controllers
 
         public void editCursos(Cursos cursosToEdit)
         {
-            var eventDB = db.eventos.Where(x => x.id == cursosToEdit.id).FirstOrDefault();
+            var cursoDB = db.Cursos.Where(x => x.id == cursosToEdit.id).FirstOrDefault();
 
-            if (cursosToEdit.titulo != eventDB.titulo)
+            if (cursosToEdit.titulo != cursoDB.titulo)
             {
-                eventDB.titulo = cursosToEdit.titulo;
+                cursoDB.titulo = cursosToEdit.titulo;
             }
-            if (cursosToEdit.subtitulo != eventDB.subtitulo)
+            if (cursosToEdit.subtitulo != cursoDB.subtitulo)
             {
-                eventDB.titulo = cursosToEdit.titulo;
+                cursoDB.subtitulo = cursosToEdit.subtitulo;
             }
-            if (cursosToEdit.descricao != eventDB.descricao)
+            if (cursosToEdit.duracao != cursoDB.duracao)
             {
-                eventDB.titulo = cursosToEdit.titulo;
+                cursoDB.duracao = cursosToEdit.duracao;
             }
-            if (cursosToEdit.imagem != null && cursosToEdit.imagem != eventDB.imagem)
+            if (cursosToEdit.descricao != cursoDB.descricao)
             {
-                eventDB.imagem = cursosToEdit.imagem;
+                cursoDB.descricao = cursosToEdit.descricao;
+            }
+            if (cursosToEdit.imagem != null && cursosToEdit.imagem != cursoDB.imagem)
+            {
+                cursoDB.imagem = cursosToEdit.imagem;
             }
 
             db.SaveChanges();
         }
     }
-    }
+}
