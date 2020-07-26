@@ -21,7 +21,7 @@ namespace pap_rui.Controllers
 
             if(result.Count() > 0)
             {
-                Session["login"] = "login";
+                Session["login"] = "admin";
                 Session["userID"] = result.FirstOrDefault().id;
                 return RedirectToAction("Index","dashboard");
             }

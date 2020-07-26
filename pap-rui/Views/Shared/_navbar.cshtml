@@ -20,34 +20,34 @@
                 <i class="fas fa-user-plus"></i>
                 <span>Registar</span>
             </a>
+            <div>
+                @if (Session["login"] == null)
+                {
+                    <a class="login-btn" href="/LoginPage" title="Login">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Login</span>
+                    </a>
 
-            <a class="login-btn" href="/LoginPage" title="Login">
-                <i class="fas fa-sign-in-alt"></i>
-                <span>Login</span>
-            </a>
-
-            <div class="hidden-backoffice">
-
-            @if (Session["login"] == null)
-            {
-                <a class="login-btn" href="/login" title="Login">
-                    <i class="fas fa-sign-in-alt"></i>
-                    <span>Backoffice</span>
-                </a>
-
-            }
-            else
-            {
-                <a class="logout-btn" href="/logout" title="Logout">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
-                </a>
-            }
-                </div>
+                }
+                else if (Session["login"].ToString() == "admin")
+                {
+                    <a class="logout-btn" href="/logout" title="Logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                }
+                else
+                {
+                    <a class="logout-btn" href="/logoutUser" title="Logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                }
+            </div>
         </div>
 
     </div>
 
 
-    
+
 </nav>

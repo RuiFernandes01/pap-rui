@@ -15,7 +15,7 @@ namespace pap_rui
 
             routes.MapRoute(
                 name: "Login",
-                url: "login",
+                url: "admin",
                 defaults: new { controller = "Login", action = "Index" }
             );
 
@@ -23,6 +23,12 @@ namespace pap_rui
                 name: "Logout",
                 url: "logout",
                 defaults: new { controller = "Login", action = "Logout" }
+            );
+
+            routes.MapRoute(
+                name: "LogoutUser",
+                url: "logoutUser",
+                defaults: new { controller = "LoginPage", action = "Logout" }
             );
 
             routes.MapRoute(

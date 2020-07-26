@@ -60,6 +60,7 @@ namespace pap_rui.Controllers
                 var usr = db.Registo.Single(u => u.Email == user.Email && u.Password == user.Password);
                 if (usr != null)
                 {
+                    Session["login"] = "user";
                     Session["id"] = usr.id.ToString();
                     Session["Email"] = usr.Email.ToString();
                     return RedirectToAction("LoggedIn");
@@ -76,7 +77,7 @@ namespace pap_rui.Controllers
         {
             if (Session["id"]!= null)
             {
-                return View("/Views/Home/Index.cshtml");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -95,6 +96,12 @@ namespace pap_rui.Controllers
             newRegisto.LastName = oldRegisto.LastName;
 
             return newRegisto;
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
